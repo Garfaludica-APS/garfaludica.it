@@ -1,0 +1,151 @@
+/*
+ * Copyright © 2025 - Garfaludica APS - MIT License
+ */
+
+@import "../fonts/inter.css";
+@import "tailwindcss" source("../../resources");
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views";
+@source "../../storage/framework/views";
+@source "../views";
+@source "../js";
+
+/*@custom-variant dark (&:where(.dark, .dark *));*/
+
+@theme {
+	--font-sans: InterVariable, sans-serif;
+
+	--breakpoint-xs: 30rem;
+
+	--animate-lighten-blink: lighten-blink 3s infinite;
+
+	@keyframes lighten-blink {
+		0%, 10% {
+			filter: brightness(1);
+		}
+		40%, 60% {
+			filter: brightness(1.4);
+		}
+		90%, 100% {
+			filter: brightness(1);
+		}
+	}
+}
+
+:root {
+	color-scheme: dark light;
+
+	--primary-color-darkest: var(--color-indigo-900);
+	--primary-color-darker: var(--color-indigo-800);
+	--primary-color-dark: var(--color-indigo-700);
+	--primary-color: var(--color-indigo-600);
+	--primary-color-light: var(--color-indigo-500);
+	--primary-color-lighter: var(--color-indigo-400);
+	--primary-color-lightest: var(--color-indigo-300);
+
+	--foreground-color-darkest: var(--color-black);
+	--foreground-color-darker: var(--color-black);
+	--foreground-color-dark: var(--color-gray-950);
+	--foreground-color: var(--color-gray-900);
+	--foreground-color-light: var(--color-gray-800);
+	--foreground-color-lighter: var(--color-gray-700);
+	--foreground-color-lightest: var(--color-white);
+
+	--background-color-darkest: var(--color-black);
+	--background-color-darker: var(--color-gray-200);
+	--background-color-dark: var(--color-gray-100);
+	--background-color: var(--color-gray-50);
+	--background-color-light: var(--color-white);
+	--background-color-lighter: var(--color-white);
+	--background-color-lightest: var(--color-white);
+
+	--link-color: var(--primary-color);
+	--link-hover-color: var(--primary-color-light);
+
+	--input-background-color: var(--background-color-lightest);
+	--input-outline-color: var(--color-gray-300);
+	--input-outline-color-focus: var(--primary-color);
+
+	--placeholder-color: var(--color-gray-400);
+
+	--checkbox-background-color: var(--background-color-lightest);
+	--checkbox-checked-color: var(--primary-color);
+	--checkbox-disabled-color: var(--color-gray-100);
+
+	--primary-btn-color: var(--primary-color);
+	--primary-btn-hover-color: var(--primary-color-light);
+	--primary-btn-disabled-color: var(--color-gray-300);
+
+	--navbtn-hover-color: var(--background-color-darker);
+
+	--dimmed-foreground-color: var(--color-gray-600);
+	--icon-hover-color: var(--color-gray-800);
+
+	@variant dark {
+		--primary-color-darkest: var(--color-indigo-800);
+		--primary-color-darker: var(--color-indigo-700);
+		--primary-color-dark: var(--color-indigo-600);
+		--primary-color: var(--color-indigo-500);
+		--primary-color-light: var(--color-indigo-400);
+		--primary-color-lighter: var(--color-indigo-300);
+		--primary-color-lightest: var(--color-indigo-200);
+
+		--foreground-color-darkest: var(--color-black);
+		--foreground-color-darker: var(--color-gray-100);
+		--foreground-color-dark: var(--color-gray-50);
+		--foreground-color: var(--color-white);
+		--foreground-color-light: var(--color-white);
+		--foreground-color-lighter: var(--color-white);
+		--foreground-color-lightest: var(--color-white);
+
+		--background-color-darkest: var(--color-black);
+		--background-color-darker: var(--color-black);
+		--background-color-dark: var(--color-gray-950);
+		--background-color: var(--color-gray-900);
+		--background-color-light: var(--color-gray-800);
+		--background-color-lighter: var(--color-gray-700);
+		--background-color-lightest: var(--color-white);
+
+		--link-color: var(--primary-color-light);
+		--link-hover-color: var(--primary-color-lighter);
+
+		--input-background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+		--input-outline-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+
+		--placeholder-color: var(--color-gray-500);
+
+		--checkbox-background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+
+		--primary-btn-disabled-color: var(--color-gray-500);
+
+		--navbtn-hover-color: var(--background-color-light);
+
+		--dimmed-foreground-color: var(--color-gray-400);
+		--icon-hover-color: var(--color-gray-300);
+	}
+}
+
+/* [data-theme="dark"] { */
+/* 	--test-color: var(--color-white); */
+/* } */
+
+@theme inline {
+	--color-primary: var(--primary-color);
+	--color-foreground: var(--foreground-color);
+	--color-background: var(--background-color);
+	--color-dimmed-foreground: var(--dimmed-foreground-color);
+	--color-card-background: var(--background-color-light);
+	--color-input-background: var(--input-background-color);
+	--color-input-outline: var(--input-outline-color);
+	--color-input-outline-focus: var(--input-outline-color-focus);
+	--color-placeholder: var(--placeholder-color);
+	--color-checkbox-background: var(--checkbox-background-color);
+	--color-checkbox-checked: var(--checkbox-checked-color);
+	--color-checkbox-disabled: var(--checkbox-disabled-color);
+	--color-link: var(--link-color);
+	--color-link-hover: var(--link-hover-color);
+	--color-primary-btn: var(--primary-btn-color);
+	--color-primary-btn-hover: var(--primary-btn-hover-color);
+	--color-primary-btn-disabled: var(--primary-btn-disabled-color);
+	--color-navbtn-hover: var(--navbtn-hover-color);
+	--color-icon-hover: var(--icon-hover-color);
+}
