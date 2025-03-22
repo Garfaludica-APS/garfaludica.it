@@ -23,6 +23,7 @@ return [
 		'contact' => 'Contatti',
 	],
 	'notify_me' => 'Avvisami',
+	'notify_me_success' => 'Registrato! Ti invieremo una notifica quando le prenotazioni saranno aperte.',
 	'telegram' => [
 		'title' => 'Rimani aggiornato!',
 		'subtitle' => 'Entra nel gruppo Telegram dedicato all\'evento: ricevi tutti gli aggiornamenti in tempo reale e organizza i tavoli per i tuoi giochi preferiti con gli altri partecipanti.',

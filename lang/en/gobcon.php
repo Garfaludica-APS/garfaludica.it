@@ -23,6 +23,7 @@ return [
 		'contact' => 'Contact',
 	],
 	'notify_me' => 'Notify Me',
+	'notify_me_success' => 'Registered! We will send you a notification when bookings open.',
 	'telegram' => [
 		'title' => 'Stay updated!',
 		'subtitle' => 'Join the Telegram group dedicated to the event: receive all updates in real-time and organize game tables for your favorite games with other participants.',
