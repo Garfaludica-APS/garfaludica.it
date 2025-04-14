@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LocalizeApp
 {
@@ -34,9 +35,12 @@ class LocalizeApp
 			if (Str::startsWith($routeName, 'en.')) {
 				$locale = 'en';
 			} elseif (Route::has('en.' . $routeName)) {
-				$prevRouteName = app('router')->getRoutes()->match(app('request')->create(URL::previous()))->getName();
-				if ($prevRouteName === $routeName || $prevRouteName === 'en.' . $routeName)
-					$locale = Config::get('app.locale', 'it');
+				try {
+					$prevRouteName = app('router')->getRoutes()->match(app('request')->create(URL::previous()))->getName();
+					if ($prevRouteName === $routeName || $prevRouteName === 'en.' . $routeName)
+						$locale = Config::get('app.locale', 'it');
+				} catch (NotFoundHttpException $e) {
+				}
 			}
 		}
 
