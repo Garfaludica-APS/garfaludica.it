@@ -1,4 +1,4 @@
-/development.env
+/*.env
 /.phpunit.cache
 /bootstrap/ssr
 /node_modules

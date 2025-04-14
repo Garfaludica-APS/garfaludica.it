@@ -27,6 +27,28 @@ class GobCon extends Controller
 			'heroImage' => asset('storage/images/gobcon/hero.jpg'),
 			'heroVideo' => asset('storage/videos/hero.mp4'),
 			'appScreenshot' => asset('storage/images/gobcon/telegram.jpg'),
+			'faqs' => [
+				'event_participation',
+				'event_participation_cost',
+				'room_prices',
+				'meal_prices',
+				'reduced_prices',
+				'packed_lunch',
+				'reservation_open',
+				'external_reservation',
+				'payment_methods',
+				'reservation_cancellation',
+				'reservation_editing',
+				'event_games',
+				'event_games_difficulty',
+				'event_time',
+				'event_location',
+				'reach_event_location',
+				'isera_drone',
+				'photo_privacy',
+				'event_profit',
+				'contact_us'
+			],
 		]);
 	}
 

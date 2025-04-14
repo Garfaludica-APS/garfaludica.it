@@ -25,6 +25,7 @@
 		heroImage: String,
 		heroVideo: String,
 		appScreenshot: String,
+		faqs: Array,
 	});
 
 	const hotels = [
@@ -88,14 +89,6 @@
 	];
 
 	const eventYear = 2025;
-
-	const faqs = [
-		{
-			question: trans('FAQs are currently unavailable. Please check back later.'),
-			answer: trans('We are still working on this section. Please check back later.'),
-		},
-		// More questions...
-	];
 
 	const contactOptions = [
 		{
