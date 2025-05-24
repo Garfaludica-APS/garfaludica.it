@@ -47,7 +47,7 @@ class GobCon extends Controller
 				'isera_drone',
 				'photo_privacy',
 				'event_profit',
-				'contact_us'
+				'contact_us',
 			],
 		]);
 	}

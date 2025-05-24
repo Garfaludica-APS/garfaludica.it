@@ -19,17 +19,22 @@
 	--animate-lighten-blink: lighten-blink 3s infinite;
 
 	@keyframes lighten-blink {
-		0%, 10% {
+		0%,
+		10% {
 			filter: brightness(1);
 		}
-		40%, 60% {
+		40%,
+		60% {
 			filter: brightness(1.4);
 		}
-		90%, 100% {
+		90%,
+		100% {
 			filter: brightness(1);
 		}
 	}
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
 	color-scheme: dark light;
@@ -108,12 +113,24 @@
 		--link-color: var(--primary-color-light);
 		--link-hover-color: var(--primary-color-lighter);
 
-		--input-background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
-		--input-outline-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+		--input-background-color: color-mix(
+			in oklab,
+			var(--color-white) 5%,
+			transparent
+		);
+		--input-outline-color: color-mix(
+			in oklab,
+			var(--color-white) 10%,
+			transparent
+		);
 
 		--placeholder-color: var(--color-gray-500);
 
-		--checkbox-background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+		--checkbox-background-color: color-mix(
+			in oklab,
+			var(--color-white) 5%,
+			transparent
+		);
 
 		--primary-btn-disabled-color: var(--color-gray-500);
 

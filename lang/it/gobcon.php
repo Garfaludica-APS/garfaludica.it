@@ -99,21 +99,21 @@ return [
 		],
 		'room_prices' => [
 			'question' => 'Quali sono i prezzi delle stanze?',
-			'answer' => 'I prezzi delle stanze sono i seguenti (da aggiungerci 1€ a persona a notte come tassa di soggiorno, da pagare in loco):<br>' .
-				'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">' .
-				'<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE COLAZIONE E CENA)</li>' .
-				'<li>Matrimoniale per due persone: 120€ a notte (60€/persona). (INCLUDE COLAZIONE E CENA)</li>' .
-				'<li>Camera tripla: 165€ a notte (55€/persona). (INCLUDE COLAZIONE E CENA)</li>' .
-				'<li>Camera quadrupla: 200€ a notte (50€/persona). (INCLUDE COLAZIONE E CENA)</li>' .
-				'</ul>' .
-				'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">' .
-				'<li>Posto in camerata con 12 persone (posti prenotabili singolarmente): 30€ a notte. (INCLUDE SOLO COLAZIONE)</li>' .
-				'<li>Posto in tenda (la tenda NON viene fornita dal Rifugio): 15€ a notte A PERSONA. (INCLUDE SOLO COLAZIONE)</li>' .
-				'</ul>' .
-				'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">' .
-				'<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE SOLO COLAZIONE)</li>' .
-				'<li>Matrimoniale per due persone: 94€ a notte (47€/persona). (INCLUDE SOLO COLAZIONE)</li>' .
-				'</ul>',
+			'answer' => 'I prezzi delle stanze sono i seguenti (da aggiungerci 1€ a persona a notte come tassa di soggiorno, da pagare in loco):<br>'
+				. 'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">'
+				. '<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE COLAZIONE E CENA)</li>'
+				. '<li>Matrimoniale per due persone: 120€ a notte (60€/persona). (INCLUDE COLAZIONE E CENA)</li>'
+				. '<li>Camera tripla: 165€ a notte (55€/persona). (INCLUDE COLAZIONE E CENA)</li>'
+				. '<li>Camera quadrupla: 200€ a notte (50€/persona). (INCLUDE COLAZIONE E CENA)</li>'
+				. '</ul>'
+				. 'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">'
+				. '<li>Posto in camerata con 12 persone (posti prenotabili singolarmente): 30€ a notte. (INCLUDE SOLO COLAZIONE)</li>'
+				. '<li>Posto in tenda (la tenda NON viene fornita dal Rifugio): 15€ a notte A PERSONA. (INCLUDE SOLO COLAZIONE)</li>'
+				. '</ul>'
+				. 'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">'
+				. '<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE SOLO COLAZIONE)</li>'
+				. '<li>Matrimoniale per due persone: 94€ a notte (47€/persona). (INCLUDE SOLO COLAZIONE)</li>'
+				. '</ul>',
 		],
 		'meal_prices' => [
 			'question' => 'Quali sono i prezzi dei pasti?',
@@ -121,7 +121,7 @@ return [
 		],
 		'reduced_prices' => [
 			'question' => 'Ci sono prezzi ridotti per i bambini?',
-			'answer' => 'Stiamo ancora contrattando con le strutture. Maggiori informazioni a breve.',
+			'answer' => 'Non sono previste particolari riduzioni per i bambini. I bambini devono pagare il prezzo pieno per i pernottamenti se hanno bisogno di un posto letto (quindi, se un bambino dorme nello stesso letto di un adulto o in una culla, non paga il pernottamento). Per i pasti, tutti i bambini devono pagare il prezzo pieno, fermo restando che è sempre possibile portare il pranzo al sacco. In tal caso, il bambino potrà mangiare rimanendo con gli adulti al tavolo.',
 		],
 		'event_time' => [
 			'question' => 'In quali orari si svolgerà l\'evento?',

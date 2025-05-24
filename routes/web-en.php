@@ -17,7 +17,7 @@ Route::domain('auth.' . env('APP_DOMAIN'))->group(function() {
 });
 
 Route::domain('gobcon.' . env('APP_DOMAIN'))->name('gobcon.')->group(function() {
-	Route::get('/', [GobCon::class , 'index'])->name('home');
+	Route::get('/', [GobCon::class, 'index'])->name('home');
 });
 
 Route::domain(env('APP_DOMAIN'))->group(function() {

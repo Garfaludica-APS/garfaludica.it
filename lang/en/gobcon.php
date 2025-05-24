@@ -99,21 +99,21 @@ return [
 		],
 		'room_prices' => [
 			'question' => 'What are the room rates?',
-			'answer' => 'The room rates are as follows (plus 1€ per person per night as a local tax, payable on site):<br>' .
-				'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">' .
-				'<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST AND DINNER)</li>' .
-				'<li>Double room for two people: 120€ per night (60€/person). (INCLUDES BREAKFAST AND DINNER)</li>' .
-				'<li>Triple room: 165€ per night (55€/person). (INCLUDES BREAKFAST AND DINNER)</li>' .
-				'<li>Quadruple room: 200€ per night (50€/person). (INCLUDES BREAKFAST AND DINNER)</li>' .
-				'</ul>' .
-				'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">' .
-				'<li>Bed in a dormitory with 12 people (individual spots can be booked): 30€ per night. (INCLUDES BREAKFAST ONLY)</li>' .
-				'<li>Spot in a tent (the tent is NOT provided by the Rifugio): 15€ per night PER PERSON. (INCLUDES BREAKFAST ONLY)</li>' .
-				'</ul>' .
-				'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">' .
-				'<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST ONLY)</li>' .
-				'<li>Double room for two people: 94€ per night (47€/person). (INCLUDES BREAKFAST ONLY)</li>' .
-				'</ul>',
+			'answer' => 'The room rates are as follows (plus 1€ per person per night as a local tax, payable on site):<br>'
+				. 'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">'
+				. '<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST AND DINNER)</li>'
+				. '<li>Double room for two people: 120€ per night (60€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
+				. '<li>Triple room: 165€ per night (55€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
+				. '<li>Quadruple room: 200€ per night (50€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
+				. '</ul>'
+				. 'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">'
+				. '<li>Bed in a dormitory with 12 people (individual spots can be booked): 30€ per night. (INCLUDES BREAKFAST ONLY)</li>'
+				. '<li>Spot in a tent (the tent is NOT provided by the Rifugio): 15€ per night PER PERSON. (INCLUDES BREAKFAST ONLY)</li>'
+				. '</ul>'
+				. 'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">'
+				. '<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST ONLY)</li>'
+				. '<li>Double room for two people: 94€ per night (47€/person). (INCLUDES BREAKFAST ONLY)</li>'
+				. '</ul>',
 		],
 		'meal_prices' => [
 			'question' => 'What are the meal prices?',
@@ -121,7 +121,7 @@ return [
 		],
 		'reduced_prices' => [
 			'question' => 'Are there discounted prices for children?',
-			'answer' => 'We are still negotiating with the facilities. More information will be available soon.',
+			'answer' => 'There are no special discounts for children. Children must pay the full price for overnight stays if they need a bed (so, if a child sleeps in the same bed as an adult or in a crib, they do not pay for the overnight stay). For meals, all children must pay the full price, but you can always bring a packed lunch. In this case, the child can eat at the table with the adults.',
 		],
 		'event_time' => [
 			'question' => 'What are the event hours?',
@@ -181,4 +181,3 @@ return [
 		'privacy' => 'Privacy',
 	],
 ];
-
