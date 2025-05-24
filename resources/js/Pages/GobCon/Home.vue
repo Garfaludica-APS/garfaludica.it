@@ -21,6 +21,7 @@ defineProps({
 	heroImage: String,
 	heroVideo: String,
 	appScreenshot: String,
+	socialImage: String,
 	faqs: Array,
 });
 
@@ -128,6 +129,11 @@ const contactOptions = [
 		/>
 		<meta head-key="color-scheme" name="color-scheme" content="dark" />
 		<meta head-key="theme-color" name="theme-color" content="#101828" />
+		<meta
+			property="og:title"
+			:content="$t('gobcon.title', { year: eventYear })"
+		/>
+		<meta property="og:image" :content="socialImage" />
 		<link rel="canonical" :href="route('gobcon.home')" />
 		<link rel="alternate" hreflang="it" :href="ziggy('gobcon.home')" />
 		<link rel="alternate" hreflang="en" :href="ziggy('en.gobcon.home')" />

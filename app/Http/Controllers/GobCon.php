@@ -27,6 +27,7 @@ class GobCon extends Controller
 			'heroImage' => asset('storage/images/gobcon/hero.jpg'),
 			'heroVideo' => asset('storage/videos/hero.mp4'),
 			'appScreenshot' => asset('storage/images/gobcon/telegram.jpg'),
+			'socialImage' => asset('storage/images/gobcon/thumbnail.png'),
 			'faqs' => [
 				'event_participation',
 				'event_participation_cost',
