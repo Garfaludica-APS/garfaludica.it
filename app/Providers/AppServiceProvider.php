@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,5 +33,13 @@ class AppServiceProvider extends ServiceProvider
 	public function boot(): void
 	{
 		Vite::prefetch();
+
+		/** @var Application $app */
+		$app = $this->app;
+
+		DB::prohibitDestructiveCommands($app->isProduction());
+
+		Model::shouldBeStrict($app->isLocal());
+		Model::automaticallyEagerLoadRelationships($app->isProduction());
 	}
 }
