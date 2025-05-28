@@ -153,10 +153,16 @@ onMounted(() => {
 			{{ $t("Step :step of :total", { step: 2, total: 4 }) }}
 		</template>
 		<template #content>
+			<p class="mt-3 font-bold">
+				N.B.: Se prenoti il pranzo di domenica, nella ricevuta che ti
+				invieremo dopo via email sarà indicato come "Pranzo - Rifugio
+				Isera": Si tratta solo di un problema tecnico e il pranzo di
+				domenica sarà comunque servito all'Hotel Panoramico.
+			</p>
 			<p class="mt-3">
 				{{
 					$t(
-						"Select the meals you want to book for the event. All lunches are served by the Isera Refuge. All dinners are served by the Panoramic Hotel. The breakfasts are served by the hotels where you will stay.",
+						"Select the meals you want to book for the event. All lunches (except sunday) are served by the Isera Refuge. All dinners (and the lunch of sunday) are served by the Panoramic Hotel. The breakfasts are served by the hotels where you will stay.",
 					)
 				}}
 			</p>

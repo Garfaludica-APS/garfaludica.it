@@ -50,13 +50,10 @@ class BookingController extends Controller
 			'email' => 'required|max:254|email:strict,dns,spoof',
 		]);
 
-		$booking = Booking::whereEmail($validated['email'])
-			->whereState(BookingState::START)->first();
-		if (!$booking)
-			$booking = Booking::create([
-				'email' => $validated['email'],
-				'expires_at' => now()->addHours(2),
-			]);
+		$booking = Booking::create([
+			'email' => $validated['email'],
+			'expires_at' => now()->addHours(2),
+		]);
 
 		Mail::to($booking->email)->queue(new StartBooking($booking));
 		return redirect()->back();

@@ -85,5 +85,6 @@ return Application::configure(basePath: \dirname(__DIR__))
 	->withSchedule(function(Schedule $schedule) {
 		$schedule->call('telescope:prune --hours=72')->daily();
 		$schedule->command('cloudflare:reload')->daily()->environments('production');
+		$schedule->command('bookings:expire')->everyThreeMinutes();
 	})
 	->create();
