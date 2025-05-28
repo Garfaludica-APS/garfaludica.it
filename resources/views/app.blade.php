@@ -13,7 +13,7 @@
 
     <title inertia>{{ config('app.name', 'Garfaludica APS') }}</title>
 
-    @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
+    @vite(['resources/js/app.ts'])
     @inertiaHead
 </head>
 
