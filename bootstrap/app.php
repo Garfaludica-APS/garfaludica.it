@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LocalizeApp;
-use App\Http\Middleware\VerifyBookingStatus;
+use App\Http\Middleware\VerifyBookingState;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -42,7 +42,7 @@ return Application::configure(basePath: \dirname(__DIR__))
 		]);
 		$middleware->alias([
 			'localized' => LocalizeApp::class,
-			'bookingStatus' => VerifyBookingStatus::class,
+			'bookingStatus' => VerifyBookingState::class,
 		]);
 		$middleware->web(prepend: [
 			LocalizeApp::class,

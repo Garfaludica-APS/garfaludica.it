@@ -3,6 +3,7 @@
  */
 
 @import "../fonts/inter.css";
+@import "maz-ui/styles";
 @import "tailwindcss" source("../../resources");
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views";
 @source "../../storage/framework/views";

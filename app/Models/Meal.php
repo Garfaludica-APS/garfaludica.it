@@ -3,26 +3,32 @@
 declare(strict_types=1);
 
 /*
- * Copyright © 2025 - Garfaludica APS - MIT License
+ * Copyright © 2024 - Garfaludica APS - MIT License
  */
 
 namespace App\Models;
 
 use App\Enums\MealType;
+use App\Enums\Menu;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
 class Meal extends Model
 {
+	use HasFactory;
+	use SoftDeletes;
+
 	protected $fillable = [
 		'type',
+		'menu',
+		'price',
+		'meal_time',
 		'reservable',
-	];
-	protected $hidden = [
-		'hotel_id',
 	];
 
 	public function hotel(): BelongsTo
@@ -30,31 +36,26 @@ class Meal extends Model
 		return $this->belongsTo(Hotel::class);
 	}
 
-	public function reservations(): HasManyThrough
+	public function reservations(): HasMany
 	{
-		return $this->throughOptions()->hasReservations();
+		return $this->hasMany(MealReservation::class);
 	}
 
-	public function options(): HasMany
+	protected function mealTime(): Attribute
 	{
-		return $this->hasMany(MealOption::class);
-	}
-
-	public function roomOptions(): BelongsToMany
-	{
-		return $this->belongsToMany(RoomOption::class);
-	}
-
-	// TODO: has-many-deep
-	public function bookings(): HasManyThrough
-	{
-		return $this->throughReservations()->hasBookings();
+		return Attribute::make(
+			get: static fn(string $value) => Carbon::parse($value, 'UTC')->setTimezone('Europe/Rome'),
+			set: static fn(Carbon|string $value) => \is_string($value) ? Carbon::parse($value, 'Europe/Rome')->setTimezone('UTC')->format('H:i:s') : $value->setTimezone('UTC')->format('H:i:s'),
+		);
 	}
 
 	protected function casts(): array
 	{
 		return [
 			'type' => MealType::class,
+			'menu' => Menu::class,
+			'price' => 'decimal:2',
+			// 'meal_time' => 'datetime:H:i',
 			'reservable' => 'boolean',
 		];
 	}

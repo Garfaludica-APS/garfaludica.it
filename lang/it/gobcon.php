@@ -14,7 +14,12 @@ return [
 	'admin_panel' => 'Pannello Admin',
 	'book_now' => 'Prenota Ora',
 	'learn_more' => 'Scopri di più',
-	'announcement' => 'Le prenotazioni sono al momento chiuse ma apriranno a breve.',
+	'announcement' => 'È ora possibile prenotare per l\'evento!',
+	'book_section' => [
+		'book_now' => 'Prenota il tuo posto all\'evento!',
+		'subtitle' => 'Inserisci la tua email. Ti invieremo un link e le istruzioni per procedere con la prenotazione!',
+	],
+	'book_start_success' => 'Controlla la tua email! Abbiamo inviato un link per procedere con la prenotazione.',
 	'navigation' => [
 		'info' => 'Info',
 		'community' => 'Community',
@@ -103,16 +108,17 @@ return [
 				. 'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">'
 				. '<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE COLAZIONE E CENA)</li>'
 				. '<li>Matrimoniale per due persone: 120€ a notte (60€/persona). (INCLUDE COLAZIONE E CENA)</li>'
-				. '<li>Camera tripla: 165€ a notte (55€/persona). (INCLUDE COLAZIONE E CENA)</li>'
-				. '<li>Camera quadrupla: 200€ a notte (50€/persona). (INCLUDE COLAZIONE E CENA)</li>'
+				. '<li>Camera tripla/Appartamento 3 persone: 165€ a notte (55€/persona). (INCLUDE COLAZIONE E CENA)</li>'
+				. '<li>Camera quadrupla/Appartamento 4 persone: 200€ a notte (50€/persona). (INCLUDE COLAZIONE E CENA)</li>'
+				. '<li>Appartamento 6 persone: 300€ a notte (50€/persona). (INCLUDE COLAZIONE E CENA)</li>'
 				. '</ul>'
 				. 'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">'
-				. '<li>Posto in camerata con 12 persone (posti prenotabili singolarmente): 30€ a notte. (INCLUDE SOLO COLAZIONE)</li>'
 				. '<li>Posto in tenda (la tenda NON viene fornita dal Rifugio): 15€ a notte A PERSONA. (INCLUDE SOLO COLAZIONE)</li>'
 				. '</ul>'
 				. 'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">'
 				. '<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE SOLO COLAZIONE)</li>'
 				. '<li>Matrimoniale per due persone: 94€ a notte (47€/persona). (INCLUDE SOLO COLAZIONE)</li>'
+				. '<li>Appartamento per tre persone con cucina: 110€ a notte (36,67€/persona). (NON INCLUDE ALCUN PASTO)</li>'
 				. '</ul>',
 		],
 		'meal_prices' => [

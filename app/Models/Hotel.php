@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Hotel extends Model
 {
+	use HasFactory;
 	protected $fillable = [
 		'name',
 	];
@@ -26,20 +27,5 @@ class Hotel extends Model
 	public function meals(): HasMany
 	{
 		return $this->hasMany(Meal::class);
-	}
-
-	public function roomOptions(): HasManyThrough
-	{
-		return $this->throughRooms()->hasOptions();
-	}
-
-	public function roomReservations(): HasManyThrough
-	{
-		return $this->throughRooms()->hasReservations();
-	}
-
-	public function mealReservations(): HasManyThrough
-	{
-		return $this->throughMeals()->hasReservations();
 	}
 }

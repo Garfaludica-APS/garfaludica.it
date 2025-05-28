@@ -6,14 +6,8 @@ declare(strict_types=1);
  * Copyright © 2025 - Garfaludica APS - MIT License
  */
 
-use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\GobCon;
-use App\Http\Controllers\MealController;
-use App\Http\Controllers\NotesController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\RoomController;
 use App\Http\Controllers\WebsiteUnderConstruction;
 use Illuminate\Support\Facades\Route;
 
@@ -31,83 +25,60 @@ Route::domain('gobcon.' . env('APP_DOMAIN'))->name('gobcon.')->group(function() 
 		Route::post('/start', [BookingController::class, 'start'])->name('start');
 
 		Route::get('/{booking}', [BookingController::class, 'index'])
-			->middleware(['signed', 'bookingStatus:start,rooms,meals,billing,summary'])
 			->name('index');
 
-		Route::get('/{booking}/rooms', [RoomController::class, 'index'])
-			->middleware('bookingStatus:rooms,meals')
-			->name('rooms.index');
-		Route::post('/{booking}/rooms', [RoomController::class, 'store'])
-			->middleware('bookingStatus:rooms')
+		Route::get('/{booking}/rooms', [BookingController::class, 'rooms'])
+			->name('rooms');
+		Route::put('/{booking}/rooms', [BookingController::class, 'addRoom'])
 			->name('rooms.store');
-		Route::delete('/{booking}/rooms/{roomReservation}', [RoomController::class, 'destroy'])
-			->middleware('bookingStatus:rooms')
-			->name('rooms.destroy');
-		Route::get('/{booking}/rooms/{room}/checkouts', [RoomController::class, 'checkouts'])
-			->middleware('bookingStatus:rooms')
-			->name('rooms.checkouts');
-		Route::get('/{booking}/rooms/{room}/availability', [RoomController::class, 'availability'])
-			->middleware('bookingStatus:rooms')
-			->name('rooms.availability');
+		Route::delete('/{booking}/rooms/{reservation}', [BookingController::class, 'deleteRoom'])
+			->name('rooms.delete');
+		Route::post('/{booking}/rooms/{room}/checkouts', [BookingController::class, 'availableCheckouts'])
+			->name('room.available-checkouts');
+		Route::post('/{booking}/rooms/{room}/availability', [BookingController::class, 'maxPeople'])
+			->name('room.max-people');
 
-		Route::get('/{booking}/meals', [MealController::class, 'index'])
-			->middleware('bookingStatus:rooms,meals,billing')
-			->name('meals.index');
-		Route::put('/{booking}/meals', [MealController::class, 'sync'])
-			->middleware('bookingStatus:meals')
-			->name('meals.sync');
+		Route::get('/{booking}/meals', [BookingController::class, 'meals'])
+			->name('meals');
+		Route::patch('/{booking}/meals', [BookingController::class, 'editMeals'])
+			->name('meals.edit');
 
-		Route::post('/{booking}/notes', [NotesController::class, 'store'])
-			->middleware('bookingStatus:meals')
+		Route::post('/{booking}/notes', [BookingController::class, 'storeNotes'])
 			->name('notes.store');
-		Route::patch('/{booking}/notes', [NotesController::class, 'update'])
-			->middleware('bookingStatus:completed')
-			->name('notes.update');
+		Route::patch('/{booking}/notes', [BookingController::class, 'addNotes'])
+			->name('add-notes');
 
-		Route::get('/{booking}/billing', [BillingController::class, 'index'])
-			->middleware('bookingStatus:billing,summary')
-			->name('billing.index');
-		Route::post('/{booking}/billing', [BillingController::class, 'store'])
-			->middleware('bookingStatus:billing')
+		Route::get('/{booking}/billing', [BookingController::class, 'billing'])
+			->name('billing');
+		Route::post('/{booking}/billing', [BookingController::class, 'storeBilling'])
 			->name('billing.store');
-		Route::patch('/{booking}/billing', [BillingController::class, 'update'])
-			->middleware('bookingStatus:completed')
-			->name('billing.update');
+		Route::patch('/{booking}/billing', [BookingController::class, 'updateBilling'])
+			->name('update-billing');
 
 		Route::get('/{booking}/summary', [BookingController::class, 'summary'])
-			->middleware('bookingStatus:summary,payment')
 			->name('summary');
 
-		Route::post('/{booking}/discount', [DiscountController::class, 'apply'])
-			->middleware('bookingStatus:billing,summary')
-			->name('discount.apply');
+		Route::post('/{booking}/discount', [BookingController::class, 'addDiscount'])
+			->name('discount.add');
 
-		Route::delete('/{booking}/reset', [BookingController::class, 'reset'])
-			->middleware('bookingStatus:rooms,meals,billing')
+		Route::delete('/{booking}/reset', [BookingController::class, 'resetOrder'])
 			->name('reset');
-		Route::delete('/{booking}/terminate', [BookingController::class, 'terminate'])
-			->middleware('bookingStatus:rooms,meals,billing,summary,payment')
+		Route::post('/{booking}/terminate', [BookingController::class, 'terminate'])
 			->name('terminate');
 
-		Route::post('/{booking}/payment', [PaymentController::class, 'create'])
-			->middleware('bookingStatus:summary')
-			->name('payment.create');
-		Route::get('/{booking}/payment', [PaymentController::class, 'capture'])
-			->middleware('bookingStatus:payment')
-			->name('payment.capture');
+		Route::post('/{booking}/payment', [BookingController::class, 'createOrder'])
+			->name('createOrder');
+		Route::post('/{booking}/payment/{orderId}/capture', [BookingController::class, 'captureOrder'])
+			->name('captureOrder');
 
-		Route::get('/{booking}/success', [BookingController::class, 'success'])
-			->middleware('bookingStatus:completed')
+		Route::get('/{booking}/success', [BookingController::class, 'successOrder'])
 			->name('success');
-		Route::get('/{booking}/aborted', [BookingController::class, 'aborted'])
-			->middleware('bookingStatus:cancelled,payment,failed')
-			->name('aborted');
+		Route::get('/{booking}/aborted', [BookingController::class, 'abortOrder'])
+			->name('abort');
 
-		Route::get('/{booking}/manage', [BookingController::class, 'manage'])
-			->middleware(['signed', 'bookingStatus:completed'])
+		Route::get('/{booking}/manage', [BookingController::class, 'manageBooking'])
 			->name('manage');
-		Route::post('/{booking}/refund', [BookingController::class, 'refund'])
-			->middleware('bookingStatus:completed')
+		Route::post('/{booking}/refund', [BookingController::class, 'refundBooking'])
 			->name('refund');
 	});
 });

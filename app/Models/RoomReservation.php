@@ -3,62 +3,77 @@
 declare(strict_types=1);
 
 /*
- * Copyright © 2025 - Garfaludica APS - MIT License
+ * Copyright © 2024 - Garfaludica APS - MIT License
  */
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class RoomReservation extends Model
 {
+	use HasFactory;
+
 	protected $fillable = [
-		'checkin_date',
-		'checkout_date',
+		'buy_option_id',
+		'people',
+		'checkin',
+		'checkout',
+		'price',
 	];
-	protected $casts = [
-		'checkin_date' => 'date',
-		'checkout_date' => 'date',
+
+	protected $appends = [
+		'buy_option',
 	];
-	protected $hidden = [
-		'booking_id',
-		'room_option_id',
-	];
+
+	public function room(): BelongsTo
+	{
+		return $this->belongsTo(Room::class);
+	}
+
+	public function hotel(): HasOneThrough
+	{
+		return $this->hasOneThrough(Hotel::class, Room::class, 'id', 'id', 'room_id', 'hotel_id');
+	}
 
 	public function booking(): BelongsTo
 	{
 		return $this->belongsTo(Booking::class);
 	}
 
-	public function roomOption(): BelongsTo
+	protected static function booted(): void
 	{
-		return $this->belongsTo(RoomOption::class);
+		parent::booted();
+		static::addGlobalScope('order', static function($builder): void {
+			$builder->orderBy('checkin', 'asc')
+				->orderBy('price', 'desc');
+		});
 	}
 
-	public function includedMeals(): HasManyThrough
-	{
-		return $this->throughRoomOption()->hasIncludedMeals();
-	}
-
-	public function room(): HasOneThrough
-	{
-		return $this->throughRoomOption()->hasRoom();
-	}
-
-	// TODO: has-many-deep
-	public function hotel(): HasOneThrough
-	{
-		return $this->throughRoom()->hasHotel();
-	}
-
-	protected function price(): Attribute
+	protected function buyOption(): Attribute
 	{
 		return Attribute::make(
-			get: fn() => $this->roomOption->price,
+			get: function(?array $value, array $attributes): ?array {
+				foreach ($this->room->buy_options as $buyOption) {
+					if ($buyOption['id'] === $attributes['buy_option_id']) {
+						return $buyOption;
+					}
+				}
+				return null;
+			}
 		)->shouldCache();
+	}
+
+	protected function casts(): array
+	{
+		return [
+			'checkin' => 'datetime',
+			'checkout' => 'datetime',
+			'price' => 'decimal:2',
+		];
 	}
 }

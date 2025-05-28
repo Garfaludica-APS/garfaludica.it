@@ -1,9 +1,9 @@
 <script lang="ts">
-import BaseLayout from "@/Layouts/BaseLayout.vue";
+// import BaseLayout from "@/Layouts/BaseLayout.vue";
 
-export default {
-	layout: (h, page) => h(BaseLayout, {}, () => page),
-};
+// export default {
+// 	layout: (h, page) => h(BaseLayout, {}, () => page),
+// };
 </script>
 
 <script setup lang="ts">
@@ -155,7 +155,7 @@ const contactOptions = [
 					class="font-semibold text-white inline hover:cursor-pointer"
 				>
 					<span class="absolute inset-0" aria-hidden="true" />{{
-						$t("gobcon.notify_me")
+						$t("gobcon.book_now")
 					}}
 					<span aria-hidden="true">&rarr;</span>
 				</button>
@@ -213,7 +213,8 @@ const contactOptions = [
 	</aside>
 
 	<section ref="bookSection">
-		<GobCon-NotifyMe />
+		<!-- <GobCon-NotifyMe /> -->
+		<GobCon-Book />
 	</section>
 
 	<section ref="faqSection">

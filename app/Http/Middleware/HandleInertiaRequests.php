@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
@@ -44,6 +45,12 @@ class HandleInertiaRequests extends Middleware
 	public function share(Request $request): array
 	{
 		return array_merge(parent::share($request), [
+			'flash' => [
+				'message' => static fn() => $request->session()->get('flash.message'),
+				'location' => static fn() => $request->session()->get('flash.location') ?? (empty($request->session()->get('flash.message')) ? 'none' : 'page'),
+				'timeout' => static fn() => $request->session()->get('flash.timeout') ?? false,
+				'style' => static fn() => $request->session()->get('flash.style') ?? 'default',
+			],
 			'ziggy' => fn() => [
 				...(new Ziggy())->toArray(),
 				'location' => $request->url(),
@@ -51,6 +58,29 @@ class HandleInertiaRequests extends Middleware
 			'app' => [
 				'locale' => App::getLocale(),
 			],
+			'settings.portalOpen' => static function() {
+				$open = config('gobcon.open', true);
+				$close = config('gobcon.close', false);
+				$closed = ($close instanceof Carbon) ? $close->isPast() : $close;
+				if ($closed)
+					return false;
+				return ($open instanceof Carbon) ? $open->isPast() : $open;
+			},
+			'settings.portalTimer' => static function() {
+				$timer = config('gobcon.open', false);
+				return ($timer instanceof Carbon) ? ceil(abs($timer->diffInSeconds())) : null;
+			},
+			'settings.portalOpenDate' => static function() {
+				$date = config('gobcon.open', null);
+				if ($date instanceof Carbon) {
+					$date->setTimezone('Europe/Rome');
+					return $date->translatedFormat('l j F Y H:i');
+				}
+			},
+			'settings.portalClose' => static function() {
+				$close = config('gobcon.close', false);
+				return ($close instanceof Carbon) ? $close->isPast() : $close;
+			},
 		]);
 	}
 }

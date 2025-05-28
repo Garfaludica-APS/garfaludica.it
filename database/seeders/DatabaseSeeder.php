@@ -20,11 +20,12 @@ class DatabaseSeeder extends Seeder
 	{
 		$this->call([
 			HotelSeeder::class,
-			RoomSeeder::class,
-			RoomOptionSeeder::class,
-			MealSeeder::class,
-			MealOptionSeeder::class,
-			IncludedMealSeeder::class,
+			GobCon2025Seeder::class,
+			// RoomSeeder::class,
+			// RoomOptionSeeder::class,
+			// MealSeeder::class,
+			// MealOptionSeeder::class,
+			// IncludedMealSeeder::class,
 		]);
 	}
 }

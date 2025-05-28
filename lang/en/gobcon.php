@@ -14,7 +14,12 @@ return [
 	'admin_panel' => 'Admin Panel',
 	'book_now' => 'Book Now',
 	'learn_more' => 'Learn More',
-	'announcement' => 'Bookings are currently closed but will open soon.',
+	'announcement' => 'It\'s now possible to book for the event!',
+	'book_section' => [
+		'book_now' => 'Book Now!',
+		'subtitle' => 'Insert your email here. We will send you a link with the instructions to proceed with the booking.',
+	],
+	'book_start_success' => 'Check your email! We have sent you a link to proceed with the booking.',
 	'navigation' => [
 		'info' => 'Info',
 		'community' => 'Community',
@@ -103,16 +108,17 @@ return [
 				. 'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">'
 				. '<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST AND DINNER)</li>'
 				. '<li>Double room for two people: 120€ per night (60€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
-				. '<li>Triple room: 165€ per night (55€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
-				. '<li>Quadruple room: 200€ per night (50€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
+				. '<li>Triple room/Apartment for 3 people: 165€ per night (55€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
+				. '<li>Quadruple room/Apartment for 4 people: 200€ per night (50€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
+				. '<li>Apartment for 6 people: 300€ per night (50€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
 				. '</ul>'
 				. 'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">'
-				. '<li>Bed in a dormitory with 12 people (individual spots can be booked): 30€ per night. (INCLUDES BREAKFAST ONLY)</li>'
 				. '<li>Spot in a tent (the tent is NOT provided by the Rifugio): 15€ per night PER PERSON. (INCLUDES BREAKFAST ONLY)</li>'
 				. '</ul>'
 				. 'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">'
 				. '<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST ONLY)</li>'
 				. '<li>Double room for two people: 94€ per night (47€/person). (INCLUDES BREAKFAST ONLY)</li>'
+				. '<li>Apartment for three people with kitchen: 110€ per night (36,67€/person). (NO MEAL INCLUDED)</li>'
 				. '</ul>',
 		],
 		'meal_prices' => [

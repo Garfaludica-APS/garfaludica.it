@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /*
- * Copyright © 2025 - Garfaludica APS - MIT License
+ * Copyright © 2024 - Garfaludica APS - MIT License
  */
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Hotel;
 use Illuminate\Database\Seeder;
 
 class HotelSeeder extends Seeder
@@ -18,6 +18,8 @@ class HotelSeeder extends Seeder
 	 */
 	public function run(): void
 	{
-		//
+		Hotel::create(['name' => 'Panoramic Hotel']);
+		Hotel::create(['name' => 'Isera Refuge']);
+		Hotel::create(['name' => 'Braccicorti Farmhouse']);
 	}
 }

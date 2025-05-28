@@ -35,7 +35,6 @@ class GobCon extends Controller
 				'meal_prices',
 				'reduced_prices',
 				'packed_lunch',
-				'reservation_open',
 				'external_reservation',
 				'payment_methods',
 				'reservation_cancellation',

@@ -3,54 +3,62 @@
 declare(strict_types=1);
 
 /*
- * Copyright © 2025 - Garfaludica APS - MIT License
+ * Copyright © 2024 - Garfaludica APS - MIT License
  */
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class MealReservation extends Model
 {
+	use HasFactory;
+
 	protected $fillable = [
-		'meal_date',
+		'date',
+		'quantity',
+		'price',
+		'discount',
 	];
-	protected $casts = [
-		'meal_date' => 'date',
-	];
-	protected $hidden = [
-		'booking_id',
-		'meal_option_id',
-	];
+
+	public function meal(): BelongsTo
+	{
+		return $this->belongsTo(Meal::class);
+	}
+
+	public function hotel(): HasOneThrough
+	{
+		return $this->hasOneThrough(Hotel::class, Meal::class, 'id', 'id', 'meal_id', 'hotel_id');
+	}
 
 	public function booking(): BelongsTo
 	{
 		return $this->belongsTo(Booking::class);
 	}
 
-	public function mealOption(): BelongsTo
+	protected static function booted(): void
 	{
-		return $this->belongsTo(MealOption::class);
+		parent::booted();
+		static::addGlobalScope('order', static function($builder): void {
+			$builder->orderBy('date', 'asc')
+				->orderBy('meal_id', 'asc')
+				->orderBy('price', 'desc');
+		});
+		static::saving(static function(MealReservation $mealReservation): void {
+			if ($mealReservation->discount > $mealReservation->price)
+				$mealReservation->discount = $mealReservation->price;
+		});
 	}
 
-	public function meal(): HasOneThrough
+	protected function casts(): array
 	{
-		return $this->throughMealOption()->hasMeal();
-	}
-
-	// TODO: has-many-deep
-	public function hotel(): HasOneThrough
-	{
-		return $this->throughMeal()->hasHotel();
-	}
-
-	protected function price(): Attribute
-	{
-		return Attribute::make(
-			get: fn() => $this->mealOption->price,
-		)->shouldCache();
+		return [
+			'date' => 'date',
+			'price' => 'decimal:2',
+			'discount' => 'decimal:2',
+		];
 	}
 }
