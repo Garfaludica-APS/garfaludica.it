@@ -750,7 +750,7 @@ class BookingController extends Controller
 				0 => [
 					'custom_id' => $booking->id,
 					'invoice_id' => 'GARFALUDICA-' . mb_str_pad((string)($booking->short_id), 4, '0', \STR_PAD_LEFT),
-					'soft_descriptor' => 'GOBCON24',
+					'soft_descriptor' => 'GOBCON25',
 					'amount' => [
 						'currency_code' => 'EUR',
 						'value' => number_format($totalPrice, 2, '.', ''),
