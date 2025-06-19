@@ -18,6 +18,8 @@ return [
 	'book_section' => [
 		'book_now' => 'Book Now!',
 		'subtitle' => 'Insert your email here. We will send you a link with the instructions to proceed with the booking.',
+		'terminated' => 'Bookings are closed',
+		'terminated_desc' => 'It\'s no longer possible to book for this edition of the event. We look forward to seeing you at the next edition next year!',
 	],
 	'book_start_success' => 'Check your email! We have sent you a link to proceed with the booking.',
 	'navigation' => [

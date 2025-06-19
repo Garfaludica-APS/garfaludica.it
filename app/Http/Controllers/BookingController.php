@@ -40,6 +40,7 @@ class BookingController extends Controller
 {
 	public function start(Request $request): RedirectResponse
 	{
+		abort(403); // closed
 		$closeDate = config('gobcon.portal_closes_at', null);
 		if ($closeDate !== null) {
 			$closeDate = ($closeDate instanceof Carbon) ? $closeDate : Carbon::parse($closeDate);

@@ -18,6 +18,8 @@ return [
 	'book_section' => [
 		'book_now' => 'Prenota il tuo posto all\'evento!',
 		'subtitle' => 'Inserisci la tua email. Ti invieremo un link e le istruzioni per procedere con la prenotazione!',
+		'terminated' => 'Prenotazioni chiuse',
+		'terminated_desc' => 'Non è più possibile prenotare per questa edizione dell\'evento. Ci vediamo alla prossima edizione tra un anno!',
 	],
 	'book_start_success' => 'Controlla la tua email! Abbiamo inviato un link per procedere con la prenotazione.',
 	'navigation' => [

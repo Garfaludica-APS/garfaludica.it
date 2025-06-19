@@ -21,58 +21,60 @@ function submit() {
 			<h2
 				class="mx-auto max-w-3xl text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl"
 			>
-				{{ $t("gobcon.book_section.book_now") }}
+				<!-- {{ $t("gobcon.book_section.book_now") }} -->
+				{{ $t("gobcon.book_section.terminated") }}
 			</h2>
 		</FadeInView>
 		<!--sse-->
 		<FadeInView speed="slow" delay="small">
 			<p class="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
-				{{ $t("gobcon.book_section.subtitle") }}
+				<!-- {{ $t("gobcon.book_section.subtitle") }} -->
+				{{ $t("gobcon.book_section.terminated_desc") }}
 			</p>
 		</FadeInView>
-		<FadeInView speed="slow" delay="large">
-			<div class="mx-auto mt-10 max-w-md">
-				<form
-					class="mx-auto mt-10 flex max-w-md gap-x-4"
-					@submit.prevent="submit"
-				>
-					<label for="email-address" class="sr-only">{{
-						$t("Email address")
-					}}</label>
-					<input
-						id="email-address"
-						name="email"
-						type="email"
-						autocomplete="email"
-						v-model="form.email"
-						required=""
-						class="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-white sm:text-sm/6"
-						:placeholder="
-							$t('gobcon.notify_me_section.enter_your_email')
-						"
-					/>
-					<button
-						type="submit"
-						:disabled="form.processing"
-						class="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-					>
-						{{ $t("gobcon.book_now") }}
-					</button>
-				</form>
-				<p
-					v-if="form.errors.email"
-					class="block mt-2 text-sm text-red-500"
-				>
-					{{ form.errors.email }}
-				</p>
-				<p
-					v-if="form.wasSuccessful"
-					class="block mt-2 text-sm text-green-500"
-				>
-					{{ $t("gobcon.book_start_success") }}
-				</p>
-			</div>
-		</FadeInView>
+		<!-- <FadeInView speed="slow" delay="large"> -->
+		<!-- 	<div class="mx-auto mt-10 max-w-md"> -->
+		<!-- 		<form -->
+		<!-- 			class="mx-auto mt-10 flex max-w-md gap-x-4" -->
+		<!-- 			@submit.prevent="submit" -->
+		<!-- 		> -->
+		<!-- 			<label for="email-address" class="sr-only">{{ -->
+		<!-- 				$t("Email address") -->
+		<!-- 			}}</label> -->
+		<!-- 			<input -->
+		<!-- 				id="email-address" -->
+		<!-- 				name="email" -->
+		<!-- 				type="email" -->
+		<!-- 				autocomplete="email" -->
+		<!-- 				v-model="form.email" -->
+		<!-- 				required="" -->
+		<!-- 				class="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-white sm:text-sm/6" -->
+		<!-- 				:placeholder=" -->
+		<!-- 					$t('gobcon.notify_me_section.enter_your_email') -->
+		<!-- 				" -->
+		<!-- 			/> -->
+		<!-- 			<button -->
+		<!-- 				type="submit" -->
+		<!-- 				:disabled="form.processing" -->
+		<!-- 				class="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" -->
+		<!-- 			> -->
+		<!-- 				{{ $t("gobcon.book_now") }} -->
+		<!-- 			</button> -->
+		<!-- 		</form> -->
+		<!-- 		<p -->
+		<!-- 			v-if="form.errors.email" -->
+		<!-- 			class="block mt-2 text-sm text-red-500" -->
+		<!-- 		> -->
+		<!-- 			{{ form.errors.email }} -->
+		<!-- 		</p> -->
+		<!-- 		<p -->
+		<!-- 			v-if="form.wasSuccessful" -->
+		<!-- 			class="block mt-2 text-sm text-green-500" -->
+		<!-- 		> -->
+		<!-- 			{{ $t("gobcon.book_start_success") }} -->
+		<!-- 		</p> -->
+		<!-- 	</div> -->
+		<!-- </FadeInView> -->
 		<!--/sse-->
 		<svg
 			viewBox="0 0 1024 1024"
