@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 
-defineProps({
+const props = defineProps({
 	speed: {
 		type: String,
 		default: "normal",
@@ -28,6 +28,23 @@ onMounted(() => {
 	);
 
 	observer.observe(target.value as Element);
+
+	// Fallback: ensure content becomes visible even if IntersectionObserver
+	// never fires (e.g. element taller than viewport on small screens).
+	const delayMs =
+		props.delay === "large"
+			? 500
+			: props.delay === "medium"
+				? 300
+				: props.delay === "small"
+					? 150
+					: 0;
+	setTimeout(() => {
+		if (!isVisible.value) {
+			isVisible.value = true;
+			observer.unobserve(target.value as Element);
+		}
+	}, 2000 + delayMs);
 });
 </script>
 <template>

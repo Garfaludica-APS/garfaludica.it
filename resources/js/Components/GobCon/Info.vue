@@ -18,9 +18,9 @@
 				<h1 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">{{ $t('gobcon.info.title') }}</h1>
 				<p class="mt-6 text-xl/8 text-balance text-gray-700">{{ $t('gobcon.info.subtitle') }}</p>
 				<p class="mt-6 text-xl/8 text-balance text-indigo-600">{{ $t('gobcon.info.date_details', {
-					start_date: $t('friday 20 june'),
-					start_time: '10:00',
-					end_date: $t('sunday 22 june'),
+					start_date: $t('friday 19 june'),
+					start_time: '14:00',
+					end_date: $t('sunday 21 june'),
 					end_time: '19:00',
 				}) }}</p>
 			</FadeInView>

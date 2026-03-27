@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace App\Mail;
 
-use App\Models\Booking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class PortalOpen extends Mailable
+class ElectionInitMail extends Mailable
 {
 	use Queueable;
 	use SerializesModels;
@@ -23,7 +22,7 @@ class PortalOpen extends Mailable
 	/**
 	 * Create a new message instance.
 	 */
-	public function __construct(public Booking $booking) {}
+	public function __construct(public string $voteUrl) {}
 
 	/**
 	 * Get the message envelope.
@@ -31,7 +30,7 @@ class PortalOpen extends Mailable
 	public function envelope(): Envelope
 	{
 		return new Envelope(
-			subject: __('[Garfaludica APS] È ora possibile prenotare per la GobCon 2026 Garfagnana!'),
+			subject: '[Garfaludica APS] Elezioni Consiglio Direttivo 2025',
 		);
 	}
 
@@ -41,9 +40,9 @@ class PortalOpen extends Mailable
 	public function content(): Content
 	{
 		return new Content(
-			markdown: 'mail.markdown.portal-open',
+			markdown: 'mail.markdown.election-init',
 			with: [
-				'booking' => $this->booking,
+				'voteUrl' => $this->voteUrl,
 				'logoPath' => storage_path('images/logo.png'),
 			],
 		);

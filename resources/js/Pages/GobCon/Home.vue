@@ -85,7 +85,7 @@ const topNavigation = [
 	{ name: "gobcon.navigation.contact", section: contactSection },
 ];
 
-const eventYear = 2025;
+const eventYear = 2026;
 
 const contactOptions = [
 	{
@@ -144,7 +144,7 @@ const contactOptions = [
 			:appMark="appMark"
 			:navItems="topNavigation"
 			:eventYear="eventYear"
-			eventDate="20-22 Giugno"
+			eventDate="19-21 Giugno"
 			eventLocation="Corfino, Villa Collemandina, Lucca"
 			:bgImage="heroImage"
 		>

@@ -4,7 +4,7 @@
     {{-- Header --}}
     <x-slot:header>
         <x-mail::header :url="config('app.url')">
-            {{ 'GobCon 2025 Garfagnana - ' . config('app.name') }}
+            {{ 'GobCon 2026 Garfagnana - ' . config('app.name') }}
         </x-mail::header>
     </x-slot:header>
 

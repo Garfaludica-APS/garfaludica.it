@@ -48,9 +48,9 @@ class Room extends Model
 			$checkin = Carbon::parse($checkin, 'Europe/Rome')->setTimezone('UTC');
 		$checkinTime = $this->checkin_time->copy();
 		$checkinTime->setTimezone('UTC');
-		if ($checkin < Carbon::parse('2025-06-19', 'UTC')->setTimeFrom($checkinTime))
+		if ($checkin < Carbon::parse('2026-06-19', 'UTC')->setTimeFrom($checkinTime))
 			return [];
-		if ($checkin > Carbon::parse('2025-06-21', 'UTC')->setTimeFrom($checkinTime))
+		if ($checkin > Carbon::parse('2026-06-20', 'UTC')->setTimeFrom($checkinTime))
 			return [];
 		$dummy = $this->checkin_time->copy();
 		$dummy->setTimezone('UTC');
@@ -60,9 +60,8 @@ class Room extends Model
 		$checkoutTime = $this->checkout_time->copy();
 		$checkoutTime->setTimezone('UTC');
 		$checkouts = [
-			Carbon::parse('2025-06-20', 'UTC')->setTimeFrom($checkoutTime),
-			Carbon::parse('2025-06-21', 'UTC')->setTimeFrom($checkoutTime),
-			Carbon::parse('2025-06-22', 'UTC')->setTimeFrom($checkoutTime),
+			Carbon::parse('2026-06-20', 'UTC')->setTimeFrom($checkoutTime),
+			Carbon::parse('2026-06-21', 'UTC')->setTimeFrom($checkoutTime),
 		];
 		$bo = $this->buy_options;
 		$usePeople = \count($bo) === 1 && $bo[0]['people'] === 0;
@@ -76,6 +75,7 @@ class Room extends Model
 					$query->whereRaw('? between `checkin` and `checkout` or ? between `checkin` and `checkout`', [$checkin, $checkout]);
 				})->get();
 			$count = 0;
+			$reservations->load('booking');
 
 			foreach ($reservations as $reservation)
 				if ($reservation->booking && !\in_array($reservation->booking->state, [BookingState::FAILED, BookingState::CANCELLED, BookingState::REFUND_REQUESTED, BookingState::REFUNDED]))
@@ -105,13 +105,13 @@ class Room extends Model
 		$checkinTime->setTimezone('UTC');
 		$checkoutTime = $this->checkout_time->copy();
 		$checkoutTime->setTimezone('UTC');
-		if ($checkin < Carbon::parse('2025-06-19', 'UTC')->setTimeFrom($checkinTime))
+		if ($checkin < Carbon::parse('2026-06-19', 'UTC')->setTimeFrom($checkinTime))
 			return false;
-		if ($checkin > Carbon::parse('2025-06-21', 'UTC')->setTimeFrom($checkinTime))
+		if ($checkin > Carbon::parse('2026-06-20', 'UTC')->setTimeFrom($checkinTime))
 			return false;
-		if ($checkout < Carbon::parse('2025-06-20', 'UTC')->setTimeFrom($checkoutTime))
+		if ($checkout < Carbon::parse('2026-06-20', 'UTC')->setTimeFrom($checkoutTime))
 			return false;
-		if ($checkout > Carbon::parse('2025-06-22', 'UTC')->setTimeFrom($checkoutTime))
+		if ($checkout > Carbon::parse('2026-06-21', 'UTC')->setTimeFrom($checkoutTime))
 			return false;
 		$dummy = $this->checkin_time->copy();
 		$dummy->setTimezone('UTC');
@@ -130,6 +130,7 @@ class Room extends Model
 		$bo = $this->buy_options;
 		$usePeople = \count($bo) === 1 && $bo[0]['people'] === 0;
 		$count = 0;
+		$reservations->load('booking');
 
 		foreach ($reservations as $reservation)
 			if ($reservation->booking && !\in_array($reservation->booking->state, [BookingState::FAILED, BookingState::CANCELLED, BookingState::REFUND_REQUESTED, BookingState::REFUNDED]))
@@ -185,14 +186,12 @@ class Room extends Model
 				$checkinTime = Carbon::parse($attributes['checkin_time'], 'UTC');
 				$checkoutTime = Carbon::parse($attributes['checkout_time'], 'UTC');
 				$checkins = [
-					Carbon::parse('2025-06-19', 'UTC')->setTimeFrom($checkinTime),
-					Carbon::parse('2025-06-20', 'UTC')->setTimeFrom($checkinTime),
-					Carbon::parse('2025-06-21', 'UTC')->setTimeFrom($checkinTime),
+					Carbon::parse('2026-06-19', 'UTC')->setTimeFrom($checkinTime),
+					Carbon::parse('2026-06-20', 'UTC')->setTimeFrom($checkinTime),
 				];
 				$checkouts = [
-					Carbon::parse('2025-06-20', 'UTC')->setTimeFrom($checkoutTime),
-					Carbon::parse('2025-06-21', 'UTC')->setTimeFrom($checkoutTime),
-					Carbon::parse('2025-06-22', 'UTC')->setTimeFrom($checkoutTime),
+					Carbon::parse('2026-06-20', 'UTC')->setTimeFrom($checkoutTime),
+					Carbon::parse('2026-06-21', 'UTC')->setTimeFrom($checkoutTime),
 				];
 				$bo = $this->castAttribute('buy_options', $attributes['buy_options']);
 				$usePeople = \count($bo) === 1 && $bo[0]['people'] === 0;

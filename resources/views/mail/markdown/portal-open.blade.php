@@ -3,7 +3,7 @@
 
 {{ __('Ciao!') }}
 
-{{ __('Ricevi questa email in quanto hai chiesto di essere avvisato quando aprivano le prenotazioni per l\'evento GobCon 2025 Garfagnana. È arrivato il momento! Le prenotazioni sono adesso aperte!') }}
+{{ __('Ricevi questa email in quanto hai chiesto di essere avvisato quando aprivano le prenotazioni per l\'evento GobCon 2026 Garfagnana. È arrivato il momento! Le prenotazioni sono adesso aperte!') }}
 
 {{ __('Premi il pulsante qui sotto per iniziare la prenotazione, oppure visita gobcon.garfaludica.it') }}
 

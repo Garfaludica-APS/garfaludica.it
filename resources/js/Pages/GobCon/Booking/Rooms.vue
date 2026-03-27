@@ -465,6 +465,29 @@ onMounted(() => {
 										}}
 									</p>
 									<p
+										v-if="option['price_single_night']"
+										class="text-xs text-slate-400 dark:text-slate-500"
+									>
+										({{ $t("2 nights") }})
+									</p>
+									<p
+										v-if="option['price_single_night']"
+									>
+										{{
+											$t("Price: :price", {
+												price: formatPrice(
+													option["price_single_night"],
+												),
+											})
+										}}
+									</p>
+									<p
+										v-if="option['price_single_night']"
+										class="text-xs text-slate-400 dark:text-slate-500"
+									>
+										({{ $t("1 night") }})
+									</p>
+									<p
 										v-if="isMultiBookable(option)"
 										class="text-sm text-slate-500 dark:text-slate-400"
 									>

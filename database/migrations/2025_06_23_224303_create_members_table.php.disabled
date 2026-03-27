@@ -1,0 +1,42 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * Copyright © 2025 - Garfaludica APS - MIT License
+ */
+
+use App\Models\Member;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class() extends Migration {
+	/**
+	 * Run the migrations.
+	 */
+	public function up(): void
+	{
+		Schema::create('members', function(Blueprint $table) {
+			$table->id();
+			$table->string('name');
+			$table->string('email')->unique();
+			$table->boolean('is_voter')->default(false);
+			$table->boolean('is_candidate')->default(false);
+			$table->foreignIdFor(Member::class, 'delegate_id')
+				->nullable()
+				->constrained()
+				->cascadeOnUpdate()
+				->nullOnDelete();
+			$table->timestamps();
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 */
+	public function down(): void
+	{
+		Schema::dropIfExists('members');
+	}
+};

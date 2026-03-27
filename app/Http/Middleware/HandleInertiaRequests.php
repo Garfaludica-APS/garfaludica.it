@@ -81,6 +81,7 @@ class HandleInertiaRequests extends Middleware
 				$close = config('gobcon.close', false);
 				return ($close instanceof Carbon) ? $close->isPast() : $close;
 			},
+			'logoUrl' => asset('storage/images/hotlink-ok/garfaludica-logo.png'),
 		]);
 	}
 }

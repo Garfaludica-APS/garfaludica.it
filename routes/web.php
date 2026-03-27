@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GobCon;
+// use App\Http\Controllers\VoteController;
 use App\Http\Controllers\WebsiteUnderConstruction;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,22 @@ Route::domain('auth.' . env('APP_DOMAIN'))->group(function() {
 		'logoUrl' => asset('storage/images/hotlink-ok/garfaludica-logo-dice.png'),
 	]))->name('auth');
 });
+
+// Vote routes disabled — voting system is not complete
+// Route::domain('vote.' . env('APP_DOMAIN'))->name('vote.')->group(function() {
+// 	Route::get('/election/{token}/voter/{member}/start', [VoteController::class, 'electionStart'])
+// 		->name('election.start');
+// 	Route::post('/election/{token}/verify', [VoteController::class, 'electionVerify'])
+// 		->name('election.verify');
+// 	Route::get('/election/{token}/queue', [VoteController::class, 'electionQueue'])
+// 		->name('election.queue');
+// 	Route::get('/ballot/{ballot}/vote', [VoteController::class, 'ballotIndex'])
+// 		->name('ballot.index');
+// 	Route::post('/ballot/{ballot}/vote', [VoteController::class, 'ballotVote'])
+// 		->name('ballot.vote');
+// 	Route::get('/ballot/{ballot}/results', [VoteController::class, 'ballotResults'])
+// 		->name('ballot.results');
+// });
 
 Route::domain('gobcon.' . env('APP_DOMAIN'))->name('gobcon.')->group(function() {
 	Route::post('/notifyme', [GobCon::class, 'notifyMe'])->name('notifyMe');

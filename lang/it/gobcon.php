@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 return [
 	'title' => 'GobCon :year Garfagnana',
-	'description' => 'Quarta edizione dell\'evento organizzato da Garfaludica APS in collaborazione con la Tana dei Goblin. Giochi da Tavolo in Garfagnana per tutte le età! Vi aspettiamo!',
+	'description' => 'Quinta edizione dell\'evento organizzato da Garfaludica APS in collaborazione con la Tana dei Goblin. Giochi da Tavolo in Garfagnana per tutte le età! Vi aspettiamo!',
 	'keywords' => 'Garfaludica, GobCon, Evento, Corfino, Villa Collemandina, Garfagnana, Tana dei Goblin, Associazione, Terzo settore, APS, No profit, Giochi da Tavolo, Giochi di Ruolo, Giochi di Carte, Scacchi, Wargames, Board games, Card games, Chess, Castelnuovo di Garfagnana',
 	'date_location' => ':date, :location',
 	'admin_panel' => 'Pannello Admin',
@@ -42,15 +42,15 @@ return [
 		'date_details' => 'Da :start_date ore :start_time a :end_date ore :end_time',
 		'section_1' => [
 			'title' => 'Luogo e programma',
-			'paragraph_1' => 'Mattina e pomeriggio di venerdì e sabato li passeremo al Rifugio Isera, situato a 1208 metri di altitudine, nella Riserva Natuale dell\'Orecchiella e nel Parco Nazionale dell\'Appennino Tosco-Emiliano, ai piedi della maestosa Pania di Corfino. In caso di maltempo, le attività saranno spostate presso l\'Hotel Panoramico.',
-			'paragraph_2' => 'La sera e l\'intera giornata di domenica, invece, ci sposteremo presso l\'Hotel Panoramico, dove sarà possibile giocare fino a notte fonda.',
-			'paragraph_3' => 'Le colazioni si terranno presso la struttura in cui si alloggia; i pranzi di venerdì e sabato si svolgeranno presso il Rifugio Isera; tutte le cene e il pranzo di domenica si terranno presso l\'Hotel Panoramico.',
-			'paragraph_4' => 'Gli indirizzi del Rifugio Isera e dell\'Hotel Panoramico sono indicati sotto.',
+			'paragraph_1' => 'L\'evento si svolgerà presso l\'Hotel Panoramico di Corfino (Villa Collemandina), vicino al Parco Naturale dell\'Orecchiella e al Parco Nazionale dell\'Appennino Tosco-Emiliano, a 1208 metri di altitudine.',
+			'paragraph_2' => 'Per quelli che preferiscono dormire in tenda, sarà possibile passare la notte al vicino Rifugio Isera. C\'è anche la possibilità di pernottare presso l\'Agriturismo Braccicorti, distante 20/25 minuti di macchina dal luogo dell\'evento. Per chi preferisce alloggiare nel proprio camper, nel centro di Corfino si trova un\'area attrezzata gratuita.',
+			'paragraph_3' => 'Le colazioni si terranno presso la struttura in cui si alloggia; tutti gli altri pasti (pranzo e cena) si terranno presso l\'Hotel Panoramico.',
+			'paragraph_4' => 'Gli indirizzi dell\'Hotel Panoramico, del Rifugio Isera e dell\'Agriturismo Braccicorti sono indicati sotto.',
 		],
 		'section_2' => [
 			'title' => 'Come partecipare',
-			'paragraph_1' => 'La partecipazione all\'evento è gratuita, aperta a tutti, ed è sufficiente presentarsi nei luoghi e negli orari indicati. Tuttavia, se desideri pernottare o partecipare ai pasti (pranzo, cena), è necessario prenotare in anticipo attraverso questo portale.',
-			'paragraph_2' => 'Le prenotazioni apriranno a breve. Se desideri essere avvisato non appena sarà possibile prenotare, inserisci il tuo indirizzo email nel campo sottostante. Per maggiori informazioni, leggi la sezione "Domande Frequenti" in fondo alla pagina oppure contattaci.',
+			'paragraph_1' => 'La partecipazione all\'evento è gratuita, aperta a tutti, ed è sufficiente presentarsi all\'Hotel Panoramic negli orari indicati. Tuttavia, se desideri pernottare o partecipare ai pasti (pranzo, cena), è necessario prenotare in anticipo attraverso questo portale.',
+			'paragraph_2' => 'Scorri più in basso per prenotare il tuo posto all\'evento! Per maggiori informazioni, leggi la sezione "Domande Frequenti" in fondo alla pagina oppure contattaci.',
 		],
 	],
 	'hotels' => [
@@ -58,17 +58,17 @@ return [
 		'google_maps' => 'Google Maps',
 		'isera' => [
 			'name' => 'Rifugio Isera',
-			'description' => 'Il Rifugio offre la possibilità di pernottare in una camerata con 12 posti letto a castello (prenotabili singolarmente) oppure di pernottare in tenda nell\'ampio prato recintato e attrezzato che circonda il Rifugio (la tenda NON viene fornita dal Rifugio).',
+			'description' => 'Il Rifugio offre la possibilità di pernottare in tenda nell\'ampio prato recintato e attrezzato che circonda il Rifugio (la tenda NON viene fornita dal Rifugio).',
 			'address' => 'Località Isera, 55030 Corfino (Villa Collemandina) LU',
 		],
 		'panoramico' => [
 			'name' => 'Hotel Panoramico',
-			'description' => 'L\'Hotel mette a disposizione camere matrimoniali (anche ad uso singolo), doppie, triple e quadruple. Ogni camera dispone di bagno privato. L\'Hotel offre anche un ampio giardino con piscina riscaldata e un bar sempre aperto durante l\'evento.',
+			'description' => 'Questo è il luogo principale dell\'evento. L\'Hotel mette a disposizione camere matrimoniali (anche ad uso singolo), doppie, triple e quadruple. Ogni camera dispone di bagno privato. L\'Hotel offre anche un ampio giardino con piscina riscaldata, aperta a tutti i partecipanti dell\'evento, e un bar sempre aperto durante l\'evento.',
 			'address' => 'Via Fondo la Terra, 9, 55030 Corfino (Villa Collemandina) LU',
 		],
 		'braccicorti' => [
 			'name' => 'Agriturismo Braccicorti',
-			'description' => 'Offre camere per due persone con bagno privato e piscina. Distante 20/25 minuti di macchina dal luogo dell\'evento.',
+			'description' => 'Offre camere per due o tre persone con bagno privato, piscina (accessibile solo agli ospiti dell\'agriturismo) e un capannotto per due persone. Distante 20/25 minuti di macchina dal luogo dell\'evento.',
 			'address' => 'Località Braccicorti, 38/A, 55036 Pieve Fosciana LU',
 		],
 		'camper' => [
@@ -98,7 +98,7 @@ return [
 		],
 		'packed_lunch' => [
 			'question' => 'Posso portare il pranzo al sacco?',
-			'answer' => 'Sì, ma potrebbe esserti chiesto di allontanarti dal luogo dell\'evento per mangiare. Consigliamo comunque di mangiare ai pasti preparati dal Rifugio Isera e dell\'Hotel Panoramico: negli anni passati i feedback sulla cucina di queste strutture sono stati molto positivi. I pasti costano 20 euro a persona e devono essere prenotati in anticipo attraverso questo portale (se si prenota una stanza presso l\'Hotel Panoramico, la cena è inclusa nel prezzo della stanza).',
+			'answer' => 'Sì, ma potrebbe esserti chiesto di allontanarti dal luogo dell\'evento per mangiare. Consigliamo comunque di mangiare ai pasti preparati dall\'Hotel Panoramico: negli anni passati i feedback sulla cucina dell\'Hotel sono stati molto positivi. I pranzi costano 20 euro a persona (25 euro la domenica), le cene costano 25 euro a persona e devono essere prenotati in anticipo attraverso questo portale (se si prenota una stanza presso l\'Hotel Panoramico, tutti i pasti sono inclusi nel prezzo della stanza).',
 		],
 		'event_participation_cost' => [
 			'question' => 'Partecipare all\'evento ha un prezzo? Devo prenotare per poter partecipare?',
@@ -108,24 +108,25 @@ return [
 			'question' => 'Quali sono i prezzi delle stanze?',
 			'answer' => 'I prezzi delle stanze sono i seguenti (da aggiungerci 1€ a persona a notte come tassa di soggiorno, da pagare in loco):<br>'
 				. 'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">'
-				. '<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE COLAZIONE E CENA)</li>'
-				. '<li>Matrimoniale per due persone: 120€ a notte (60€/persona). (INCLUDE COLAZIONE E CENA)</li>'
-				. '<li>Camera tripla/Appartamento 3 persone: 165€ a notte (55€/persona). (INCLUDE COLAZIONE E CENA)</li>'
-				. '<li>Camera quadrupla/Appartamento 4 persone: 200€ a notte (50€/persona). (INCLUDE COLAZIONE E CENA)</li>'
-				. '<li>Appartamento 6 persone: 300€ a notte (50€/persona). (INCLUDE COLAZIONE E CENA)</li>'
-				. '</ul>'
+				. '<li>Prezzo per tutte le stanze: 80€ a persona a notte, se pernotti due notti; oppure 90€ a persona a notte, se pernotti una notte sola. (INCLUDE COLAZIONE, PRANZO E CENA). Stanze disponibili:<ul style="margin-left: 16px; list-style-type: square; list-style-position: inside">'
+				. '<li>Matrimoniale a uso singolo (1 persona)</li>'
+				. '<li>Matrimoniale per due persone</li>'
+				. '<li>Camera tripla/Appartamento 3 persone</li>'
+				. '<li>Camera quadrupla/Appartamento 4 persone</li>'
+				. '<li>Appartamento 6 persone</li>'
+				. '</ul></li></ul>'
 				. 'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">'
 				. '<li>Posto in tenda (la tenda NON viene fornita dal Rifugio): 15€ a notte A PERSONA. (INCLUDE SOLO COLAZIONE)</li>'
 				. '</ul>'
 				. 'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">'
-				. '<li>Matrimoniale a uso singolo (1 persona): 80€ a notte. (INCLUDE SOLO COLAZIONE)</li>'
 				. '<li>Matrimoniale per due persone: 94€ a notte (47€/persona). (INCLUDE SOLO COLAZIONE)</li>'
 				. '<li>Appartamento per tre persone con cucina: 110€ a notte (36,67€/persona). (NON INCLUDE ALCUN PASTO)</li>'
+				. '<li>Capannotto per due persone: 98€ a notte (49€/persona). (NON INCLUDE ALCUN PASTO)</li>'
 				. '</ul>',
 		],
 		'meal_prices' => [
 			'question' => 'Quali sono i prezzi dei pasti?',
-			'answer' => 'La colazione è sempre inclusa nel costo del pernottamento. Se non hai prenotato una stanza, puoi comunque fare colazione nei bar delle strutture ricettive al prezzo normale del bar. Pranzo e cena costano sempre 20€ (ciascuno): se hai prenotato la stanza presso l\'Hotel Panoramico la cena è inclusa nel prezzo della stanza, mentre deve essere pagata a parte se hai prenotato presso un\'altra struttura. Il pranzo (20€) viene sempre pagato a parte.',
+			'answer' => 'La colazione è sempre inclusa nel costo del pernottamento. Se non hai prenotato una stanza, puoi comunque fare colazione nei bar delle strutture ricettive al prezzo normale del bar. I pranzi costano 20€ (ciascuno), tranne la domenica che costa 25€, mentre le cene costano sempre 25€: se hai prenotato la stanza presso l\'Hotel Panoramico tutti i pasti sono inclusi nel prezzo della stanza (cena della sera prima + colazione mattina successiva + pranzo giorno successivo), mentre devono essere pagati a parte se hai prenotato presso un\'altra struttura.',
 		],
 		'reduced_prices' => [
 			'question' => 'Ci sono prezzi ridotti per i bambini?',
@@ -133,15 +134,15 @@ return [
 		],
 		'event_time' => [
 			'question' => 'In quali orari si svolgerà l\'evento?',
-			'answer' => 'L\'evento si svolgerà da venerdì 20 giugno 2025 ore 10:00 a domenica 22 giugno 2025 ore 19:00 con orario continuato, giorno e notte. Puoi partecipare in qualsiasi momento, anche solo per un giorno o per poche ore.',
+			'answer' => 'L\'evento si svolgerà da venerdì 19 giugno 2026 ore 14:00 a domenica 21 giugno 2026 ore 19:00 con orario continuato, giorno e notte. Puoi partecipare in qualsiasi momento, anche solo per un giorno o per poche ore.',
 		],
 		'event_location' => [
 			'question' => 'Dove si svolgerà l\'evento?',
-			'answer' => 'L\'evento si svolgerà presso il Rifugio Isera e l\'Hotel Panoramico, a Corfino (LU). Venerdì e sabato mattina e pomeriggio saremo al Rifugio Isera; Tutte le sere e l\'intera giornata di domenica le passeremo all\'Hotel Panoramico.',
+			'answer' => 'L\'evento si svolgerà presso l\'Hotel Panoramico, a Corfino (LU). Indirizzo: Via Fondo la Terra, 9, 55030 Corfino (Villa Collemandina) LU.',
 		],
 		'reservation_open' => [
 			'question' => 'Quando apriranno le prenotazioni?',
-			'answer' => 'Non abbiamo ancora una data precisa, ma le prenotazioni apriranno a breve. Se desideri essere avvisato non appena sarà possibile prenotare, inserisci il tuo indirizzo email nel campo qui sopra.',
+			'answer' => 'Le prenotazioni sono aperte! Puoi prenotare il tuo posto utilizzando il modulo di prenotazione qui sopra.',
 		],
 		'external_reservation' => [
 			'question' => 'Posso prenotare senza utilizzare questo portale? Posso prenotare presso altri hotel?',
@@ -161,7 +162,7 @@ return [
 		],
 		'reach_event_location' => [
 			'question' => 'Come posso raggiungere il luogo dell\'evento?',
-			'answer' => 'Il Rifugio Isera e l\'Hotel Panoramico si trovano a Corfino (Villa Collemandina) in provincia di Lucca, Toscana. Il modo migliore per raggiungere Corfino è in auto. In alternativa, la stazione ferroviaria più vicina è quella di Castelnuovo di Garfagnana (per raggiungere Castelnuovo in treno, potrebbe essere necessario prendere una coincidenza alla stazione di Lucca): una volta raggiunto Castelnuovo, sono disponibili alcuni mezzi pubblici (bus e navette) che arrivano a Corfino (si consiglia di fare riferimento a Google Maps per gli orari). Inoltre alcuni dei nostri soci faranno quotidianamente in auto la tratta Castelnuovo-Corfino e possiamo quindi offrire dei passaggi gratuiti: contattaci indicando giorni, orari e numero di persone per organizzare il passaggio. Su tutto il territorio, sono disponibili anche servizi Taxi. Se vieni da lontano, gli aeroporti più vicini sono quelli di Pisa (PSA), Firenze (FLR) e Bologna (BLQ). Dall\'estero, puoi anche valutare gli aeroporti di Milano (MXP) e Roma Fiumicino (FCO).',
+			'answer' => 'L\'Hotel Panoramico si trova a Corfino (Villa Collemandina) in provincia di Lucca, Toscana. Il modo migliore per raggiungere Corfino è in auto. In alternativa, la stazione ferroviaria più vicina è quella di Castelnuovo di Garfagnana (per raggiungere Castelnuovo in treno, potrebbe essere necessario prendere una coincidenza alla stazione di Lucca): una volta raggiunto Castelnuovo, sono disponibili alcuni mezzi pubblici (bus e navette) che arrivano a Corfino (si consiglia di fare riferimento a Google Maps per gli orari). Inoltre alcuni dei nostri soci faranno quotidianamente in auto la tratta Castelnuovo-Corfino e possiamo quindi offrire dei passaggi gratuiti: contattaci indicando giorni, orari e numero di persone per organizzare il passaggio. Su tutto il territorio, sono disponibili anche servizi Taxi. Se vieni da lontano, gli aeroporti più vicini sono quelli di Pisa (PSA), Firenze (FLR) e Bologna (BLQ). Dall\'estero, puoi anche valutare gli aeroporti di Milano (MXP) e Roma Fiumicino (FCO).',
 		],
 		'contact_us' => [
 			'question' => 'Posso contattarvi per ulteriori informazioni? Chi devo contattare in caso di problemi con le prenotazioni?',

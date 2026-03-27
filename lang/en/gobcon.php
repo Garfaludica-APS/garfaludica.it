@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 return [
 	'title' => 'GobCon :year Garfagnana',
-	'description' => 'Fourth edition of the event organized by Garfaludica APS in collaboration with \'Tana dei Goblin\'. Board games in Garfagnana for all ages! We look forward to seeing you!',
+	'description' => 'Fifth edition of the event organized by Garfaludica APS in collaboration with \'Tana dei Goblin\'. Board games in Garfagnana for all ages! We look forward to seeing you!',
 	'keywords' => 'Garfaludica, GobCon, Event, Corfino, Villa Collemandina, Garfagnana, Tana dei Goblin, Association, Third sector, APS, Non-profit, Board games, Role-playing games, Card Games, Chess, Wargames, Castelnuovo di Garfagnana',
 	'date_location' => ':date, :location',
 	'admin_panel' => 'Admin Panel',
@@ -42,15 +42,15 @@ return [
 		'date_details' => 'From :start_date at :start_time to :end_date at :end_time',
 		'section_1' => [
 			'title' => 'Location and Schedule',
-			'paragraph_1' => 'We will spend Friday and Saturday morning and afternoon at Rifugio Isera, located at 1208 meters of altitude, within the Orecchiella Natural Reserve and the Appennino Tosco-Emiliano National Park, at the foot of the majestic Pania di Corfino. In case of bad weather, activities will be moved to the Hotel Panoramico.',
-			'paragraph_2' => 'On Sunday evening and throughout the day, however, we will move to the Hotel Panoramico, where you can play until late.',
-			'paragraph_3' => 'Breakfast will be held at the accommodation; Friday and Saturday lunches will take place at Rifugio Isera; all dinners and Sunday lunch will be held at the Hotel Panoramico.',
-			'paragraph_4' => 'The addresses of Rifugio Isera and the Hotel Panoramico are listed below.',
+			'paragraph_1' => 'The event will take place at the Hotel Panoramico in Corfino (Villa Collemandina), near the Orecchiella Natural Reserve and the Appennino Tosco-Emiliano National Park, at 1208 meters of altitude.',
+			'paragraph_2' => 'For those who prefer to stay in a tent, it will be possible to spend the night at the nearby Rifugio Isera. There is also the option to stay at the Agriturismo Braccicorti, located about a 20/25 minute drive from the event venue. For those who prefer to stay in their own camper, there is a free, equipped area in the center of Corfino.',
+			'paragraph_3' => 'Breakfast will be held at the accommodation; All other meals (lunch and dinner) will be held at the kitchen of Hotel Panoramico.',
+			'paragraph_4' => 'The addresses of the Hotel Panoramico, Rifugio Isera and Agriturismo Braccicorti are listed below.',
 		],
 		'section_2' => [
 			'title' => 'How to Participate',
-			'paragraph_1' => 'Participation in the event is free, open to everyone, and you simply need to show up at the designated locations and times. However, if you wish to stay overnight or join meals (lunch, dinner), you must book in advance through this portal.',
-			'paragraph_2' => 'Bookings will open soon. If you want to be notified as soon as booking becomes available, please enter your email address in the field below. For more information, read the "Frequently Asked Questions" section at the bottom of the page or contact us.',
+			'paragraph_1' => 'Participation in the event is free, open to everyone, and you simply need to show up at the Hotel Panoramico during the event. However, if you wish to stay overnight or join meals (lunch, dinner), you must book in advance through this portal.',
+			'paragraph_2' => 'Scroll down to book for the event! For more information, read the "Frequently Asked Questions" section at the bottom of the page or contact us.',
 		],
 	],
 	'hotels' => [
@@ -58,17 +58,17 @@ return [
 		'google_maps' => 'Google Maps',
 		'isera' => [
 			'name' => 'Rifugio Isera',
-			'description' => 'The refuge offers the possibility to stay overnight in a dormitory with 12 bunk beds (bookable individually) or to camp in the large fenced and equipped field surrounding the refuge (the tent is NOT provided by the refuge).',
+			'description' => 'The refuge offers the possibility to camp in the large fenced and equipped field surrounding the refuge (the tent is NOT provided by the refuge).',
 			'address' => 'Località Isera, 55030 Corfino (Villa Collemandina) LU',
 		],
 		'panoramico' => [
 			'name' => 'Hotel Panoramico',
-			'description' => 'The hotel offers double rooms (also suitable for single use), as well as double, triple, and quadruple rooms. Each room has a private bathroom. The hotel also features a large garden with a heated pool and a bar open throughout the event.',
+			'description' => 'This is the main location for the event. The hotel offers double rooms (also suitable for single use), as well as double, triple, and quadruple rooms. Each room has a private bathroom. The hotel also features a large garden with a heated pool, open to all event participants, and a bar open throughout the event.',
 			'address' => 'Via Fondo la Terra, 9, 55030 Corfino (Villa Collemandina) LU',
 		],
 		'braccicorti' => [
 			'name' => 'Agriturismo Braccicorti',
-			'description' => 'Offers rooms for two people with a private bathroom and a pool. Located about a 20/25 minute drive from the event venue.',
+			'description' => 'Offers rooms for two or three people with a private bathroom, a pool (accessible only to guests of the farmhouse), and a capannotto (small cabin) for two people. Located about a 20/25 minute drive from the event venue.',
 			'address' => 'Località Braccicorti, 38/A, 55036 Pieve Fosciana LU',
 		],
 		'camper' => [
@@ -98,7 +98,7 @@ return [
 		],
 		'packed_lunch' => [
 			'question' => 'Can I bring my own packed lunch?',
-			'answer' => 'Yes, you can, but you might be asked to leave the event area to eat. We still recommend having your meals at the kitchens of Rifugio Isera and Hotel Panoramico – the feedback on their cooking in past years has been very positive. Meals cost 20 euros per person and need to be booked in advance through this portal (if you book a room at Hotel Panoramico, dinner is included in the room price).',
+			'answer' => 'Yes, you can, but you might be asked to leave the event area to eat. We still recommend having your meals at the kitchen of Hotel Panoramico – the feedback on their cooking in past years has been very positive. Lunches cost 20 euros per person (25 euros on Sunday), dinners cost 25 euros per person and need to be booked in advance through this portal (if you book a room at Hotel Panoramico, all meals are included in the room price).',
 		],
 		'event_participation_cost' => [
 			'question' => 'Is there a fee to participate in the event? Do I need to book in order to participate?',
@@ -108,24 +108,25 @@ return [
 			'question' => 'What are the room rates?',
 			'answer' => 'The room rates are as follows (plus 1€ per person per night as a local tax, payable on site):<br>'
 				. 'Hotel Panoramico:<ul style="list-style-type: circle; list-style-position: inside">'
-				. '<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST AND DINNER)</li>'
-				. '<li>Double room for two people: 120€ per night (60€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
-				. '<li>Triple room/Apartment for 3 people: 165€ per night (55€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
-				. '<li>Quadruple room/Apartment for 4 people: 200€ per night (50€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
-				. '<li>Apartment for 6 people: 300€ per night (50€/person). (INCLUDES BREAKFAST AND DINNER)</li>'
-				. '</ul>'
+				. '<li>Price for all rooms: 80€ per person per night if you stay two nights; or 90€ per person per night if you stay one night only. (INCLUDES BREAKFAST, LUNCH AND DINNER). Available rooms:<ul style="margin-left: 16px; list-style-type: square; list-style-position: inside">'
+				. '<li>Double room for single use (1 person)</li>'
+				. '<li>Double room for two people</li>'
+				. '<li>Triple room/Apartment for 3 people</li>'
+				. '<li>Quadruple room/Apartment for 4 people</li>'
+				. '<li>Apartment for 6 people</li>'
+				. '</ul></li></ul>'
 				. 'Rifugio Isera:<ul style="list-style-type: circle; list-style-position: inside">'
 				. '<li>Spot in a tent (the tent is NOT provided by the Rifugio): 15€ per night PER PERSON. (INCLUDES BREAKFAST ONLY)</li>'
 				. '</ul>'
 				. 'Agriturismo Braccicorti:<ul style="list-style-type: circle; list-style-position: inside">'
-				. '<li>Double room for single use (1 person): 80€ per night. (INCLUDES BREAKFAST ONLY)</li>'
 				. '<li>Double room for two people: 94€ per night (47€/person). (INCLUDES BREAKFAST ONLY)</li>'
-				. '<li>Apartment for three people with kitchen: 110€ per night (36,67€/person). (NO MEAL INCLUDED)</li>'
+				. '<li>Apartment for three people with kitchen: 110€ per night (36.67€/person). (NO MEAL INCLUDED)</li>'
+				. '<li>Capannotto for two people: 98€ per night (49€/person). (NO MEAL INCLUDED)</li>'
 				. '</ul>',
 		],
 		'meal_prices' => [
 			'question' => 'What are the meal prices?',
-			'answer' => 'Breakfast is always included in the cost of the overnight stay. If you haven’t booked a room, you can still have breakfast at the bars in the accommodation facilities at the regular bar price. Both lunch and dinner cost 20€ each: if you have booked a room at Hotel Panoramico, dinner is included in the room price, whereas at other facilities it must be paid separately. Lunch (20€) is always paid for separately.',
+			'answer' => 'Breakfast is always included in the cost of the overnight stay. If you haven’t booked a room, you can still have breakfast at the bars in the accommodation facilities at the regular bar price. Lunches cost 20€ each (25€ on Sunday), while dinners always cost 25€: if you have booked a room at Hotel Panoramico, all meals are included in the room price (dinner on the evening before + breakfast on the following morning + lunch on the following day), whereas at other facilities they must be paid separately.',
 		],
 		'reduced_prices' => [
 			'question' => 'Are there discounted prices for children?',
@@ -133,15 +134,15 @@ return [
 		],
 		'event_time' => [
 			'question' => 'What are the event hours?',
-			'answer' => 'The event will take place from Friday, 20 June 2025 at 10:00 to Sunday, 22 June 2025 at 19:00, running continuously day and night. You can participate at any time, even if only for one day or for a few hours.',
+			'answer' => 'The event will take place from Friday, 19 June 2026 at 14:00 to Sunday, 21 June 2026 at 19:00, running continuously day and night. You can participate at any time, even if only for one day or for a few hours.',
 		],
 		'event_location' => [
 			'question' => 'Where is the event taking place?',
-			'answer' => 'The event is held at Rifugio Isera and Hotel Panoramico, in Corfino (LU). On Friday and Saturday mornings and afternoons, we will be at Rifugio Isera; all the evenings and the entire Sunday will take place at Hotel Panoramico.',
+			'answer' => 'The event is held at Hotel Panoramico, in Corfino (LU). Address: Via Fondo la Terra, 9, 55030 Corfino (Villa Collemandina) LU.',
 		],
 		'reservation_open' => [
 			'question' => 'When will reservations open?',
-			'answer' => 'We don’t have an exact date yet, but reservations will open soon. If you want to be notified as soon as booking is available, please enter your email address in the field above.',
+			'answer' => 'Reservations are open! You can book your spot using the booking form above.',
 		],
 		'external_reservation' => [
 			'question' => 'Can I book without using this portal? Can I make a reservation at another hotel?',
@@ -161,7 +162,7 @@ return [
 		],
 		'reach_event_location' => [
 			'question' => 'How can I reach the event location?',
-			'answer' => 'Rifugio Isera and Hotel Panoramico are located in Corfino (Villa Collemandina), in the province of Lucca, Tuscany. The best way to reach Corfino is by car. Alternatively, the nearest train station is Castelnuovo di Garfagnana (to reach Castelnuovo by train, you might need to take a connection at the Lucca station): once you reach Castelnuovo, there are public transport options (buses and shuttles) available to Corfino (check Google Maps for the schedule). Additionally, some of our members make the daily trip from Castelnuovo to Corfino by car and can offer free rides – contact us with the days, times, and number of people to organize a ride. Taxi services are also available throughout the area. If you’re coming from abroad, the nearest airports are Pisa (PSA), Florence (FLR), and Bologna (BLQ). For international travelers, you can also consider the airports in Milan (MXP) and Rome Fiumicino (FCO).',
+			'answer' => 'The Hotel Panoramico is located in Corfino (Villa Collemandina), in the province of Lucca, Tuscany. The best way to reach Corfino is by car. Alternatively, the nearest train station is Castelnuovo di Garfagnana (to reach Castelnuovo by train, you might need to take a connection at the Lucca station): once you reach Castelnuovo, there are public transport options (buses and shuttles) available to Corfino (check Google Maps for the schedule). Additionally, some of our members make the daily trip from Castelnuovo to Corfino by car and can offer free rides – contact us with the days, times, and number of people to organize a ride. Taxi services are also available throughout the area. If you’re coming from abroad, the nearest airports are Pisa (PSA), Florence (FLR), and Bologna (BLQ). For international travelers, you can also consider the airports in Milan (MXP) and Rome Fiumicino (FCO).',
 		],
 		'contact_us' => [
 			'question' => 'Can I contact you for more information? Who should I contact in case I have problems with my reservation?',

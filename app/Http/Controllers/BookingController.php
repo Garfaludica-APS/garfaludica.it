@@ -40,8 +40,7 @@ class BookingController extends Controller
 {
 	public function start(Request $request): RedirectResponse
 	{
-		abort(403); // closed
-		$closeDate = config('gobcon.portal_closes_at', null);
+		$closeDate = config('gobcon.close', null);
 		if ($closeDate !== null) {
 			$closeDate = ($closeDate instanceof Carbon) ? $closeDate : Carbon::parse($closeDate);
 			if ($closeDate->isPast())
@@ -207,7 +206,8 @@ class BookingController extends Controller
 			}
 
 			$nights = round(Carbon::parse($validated['checkin'])->startOfDay()->diffInDays(Carbon::parse($validated['checkout'])->startOfDay()));
-			$price = round($buyOption['price'] * $nights, 2);
+			$pricePerNight = ($nights === 1.0 && isset($buyOption['price_single_night'])) ? $buyOption['price_single_night'] : $buyOption['price'];
+			$price = round($pricePerNight * $nights, 2);
 			if ($multiBookable)
 				$price = round($price * $people);
 			if (!$reservation) {
@@ -250,6 +250,8 @@ class BookingController extends Controller
 
 				foreach ($includedMeals as $type) {
 					$type = MealType::from($type);
+					if (self::isExcludedBoundaryMeal($type, $date))
+						continue;
 					$mealReservation = null;
 
 					foreach ($mealReservations as $r) {
@@ -278,12 +280,12 @@ class BookingController extends Controller
 						]);
 						$mealReservation->booking_id = $booking->id;
 						$mealReservation->meal_id = $meal->id;
-						$mealReservation->price = round($meal->price * $people, 2);
+						$mealReservation->price = round(self::getMealPrice($meal, $date) * $people, 2);
 						$mealReservation->discount = $mealReservation->price;
 					} else {
 						$mealReservation->quantity += $people;
-						$mealReservation->price = round($mealReservation->meal->price * $mealReservation->quantity, 2);
-						$mealReservation->discount = round($mealReservation->discount + $mealReservation->meal->price * $people, 2);
+						$mealReservation->price = round(self::getMealPrice($mealReservation->meal, $mealReservation->date) * $mealReservation->quantity, 2);
+						$mealReservation->discount = round($mealReservation->discount + self::getMealPrice($mealReservation->meal, $mealReservation->date) * $people, 2);
 					}
 					$toSave[] = $mealReservation;
 				}
@@ -409,8 +411,8 @@ class BookingController extends Controller
 						continue;
 					}
 					$r->quantity -= $toRemove;
-					$r->price = round($r->meal->price * $r->quantity, 2);
-					$r->discount = round($r->discount - $r->meal->price * $toRemove, 2);
+					$r->price = round(self::getMealPrice($r->meal, $r->date) * $r->quantity, 2);
+					$r->discount = round($r->discount - self::getMealPrice($r->meal, $r->date) * $toRemove, 2);
 					$toSave[] = $r;
 					break;
 				}
@@ -539,12 +541,13 @@ class BookingController extends Controller
 					$meal->quantity = $validated['vegan'];
 					break;
 			}
-			$meal->price = round($meal->meal->price * $meal->quantity, 2);
+			$mealPrice = self::getMealPrice($meal->meal, $meal->date);
+			$meal->price = round($mealPrice * $meal->quantity, 2);
 			if ($freeMealCount >= $meal->quantity) {
-				$meal->discount = round($meal->meal->price * $meal->quantity, 2);
+				$meal->discount = round($mealPrice * $meal->quantity, 2);
 				$freeMealCount -= $meal->quantity;
 			} else {
-				$meal->discount = round($meal->meal->price * $freeMealCount, 2);
+				$meal->discount = round($mealPrice * $freeMealCount, 2);
 				$freeMealCount = 0;
 			}
 
@@ -748,7 +751,7 @@ class BookingController extends Controller
 				0 => [
 					'custom_id' => $booking->id,
 					'invoice_id' => 'GARFALUDICA-' . mb_str_pad((string)($booking->short_id), 4, '0', \STR_PAD_LEFT),
-					'soft_descriptor' => 'GOBCON25',
+					'soft_descriptor' => 'GOBCON26',
 					'amount' => [
 						'currency_code' => 'EUR',
 						'value' => number_format($totalPrice, 2, '.', ''),
@@ -954,7 +957,7 @@ class BookingController extends Controller
 	{
 		if (!$request->hasValidSignature()
 			|| !\in_array($booking->state, [BookingState::COMPLETED, BookingState::REFUND_REQUESTED, BookingState::REFUNDED])
-			|| Carbon::parse('2025-06-22', 'UTC')->startOfDay()->isPast())
+			|| Carbon::parse('2026-06-21', 'UTC')->startOfDay()->isPast())
 				abort(404);
 
 		if (\in_array($booking->state, [BookingState::REFUND_REQUESTED, BookingState::REFUNDED]))
@@ -1359,9 +1362,9 @@ class BookingController extends Controller
 		}
 
 		$peoplePerDay = [
-			Carbon::parse('2025-06-20', 'Europe/Rome')->midDay()->toString() => 0,
-			Carbon::parse('2025-06-21', 'Europe/Rome')->midDay()->toString() => 0,
-			Carbon::parse('2025-06-22', 'Europe/Rome')->midDay()->toString() => 0,
+			Carbon::parse('2026-06-19', 'Europe/Rome')->midDay()->toString() => 0,
+			Carbon::parse('2026-06-20', 'Europe/Rome')->midDay()->toString() => 0,
+			Carbon::parse('2026-06-21', 'Europe/Rome')->midDay()->toString() => 0,
 		];
 		$reservedRooms = $booking->rooms;
 
@@ -1401,34 +1404,34 @@ class BookingController extends Controller
 					if ($d->meal->menu === Menu::STANDARD)
 						$dinnerReservation = $d;
 				}
-			if ($lunchReservation === null && $dayLunches < $people) {
+			if ($lunchReservation === null && $dayLunches < $people && !self::isExcludedBoundaryMeal(MealType::LUNCH, $day)) {
 				$lunchReservation = new MealReservation([
 					'date' => $day,
 					'quantity' => $people - $dayLunches,
-					'price' => round($lunch->price * ($people - $dayLunches), 2),
+					'price' => round(self::getMealPrice($lunch, $day) * ($people - $dayLunches), 2),
 					'discount' => 0,
 				]);
-			} elseif ($dayLunches < $people) {
+			} elseif ($dayLunches < $people && !self::isExcludedBoundaryMeal(MealType::LUNCH, $day)) {
 				$lunchReservation->quantity += $people - $dayLunches;
-				$lunchReservation->price = round($lunch->price * $lunchReservation->quantity, 2);
+				$lunchReservation->price = round(self::getMealPrice($lunch, $day) * $lunchReservation->quantity, 2);
 			}
-			if ($dinnerReservation === null && $dayDinners < $people) {
+			if ($dinnerReservation === null && $dayDinners < $people && !self::isExcludedBoundaryMeal(MealType::DINNER, $day)) {
 				$dinnerReservation = new MealReservation([
 					'date' => $day,
 					'quantity' => $people - $dayDinners,
-					'price' => round($dinner->price * ($people - $dayDinners), 2),
+					'price' => round(self::getMealPrice($dinner, $day) * ($people - $dayDinners), 2),
 					'discount' => 0,
 				]);
-			} elseif ($dayDinners < $people) {
+			} elseif ($dayDinners < $people && !self::isExcludedBoundaryMeal(MealType::DINNER, $day)) {
 				$dinnerReservation->quantity += $people - $dayDinners;
-				$dinnerReservation->price = round($dinner->price * $dinnerReservation->quantity, 2);
+				$dinnerReservation->price = round(self::getMealPrice($dinner, $day) * $dinnerReservation->quantity, 2);
 			}
-			if ($dayLunches < $people) {
+			if ($dayLunches < $people && $lunchReservation !== null) {
 				$lunchReservation->booking_id = $booking->id;
 				$lunchReservation->meal_id = $lunch->id;
 				$toSave[] = $lunchReservation;
 			}
-			if ($dayDinners < $people) {
+			if ($dayDinners < $people && $dinnerReservation !== null) {
 				$dinnerReservation->booking_id = $booking->id;
 				$dinnerReservation->meal_id = $dinner->id;
 				$toSave[] = $dinnerReservation;
@@ -1444,20 +1447,20 @@ class BookingController extends Controller
 	private function getFreeMeals(Booking $booking): array
 	{
 		$freeMeals = [
-			Carbon::parse('2025-06-20', 'Europe/Rome')->startOfDay()->toString() => [
-				'DISPLAY' => Carbon::parse('2025-06-20', 'Europe/Rome')->startOfDay()->translatedFormat('l j F'),
+			Carbon::parse('2026-06-19', 'Europe/Rome')->startOfDay()->toString() => [
+				'DISPLAY' => Carbon::parse('2026-06-19', 'Europe/Rome')->startOfDay()->translatedFormat('l j F'),
 				'breakfast' => 0,
 				'lunch' => 0,
 				'dinner' => 0,
 			],
-			Carbon::parse('2025-06-21', 'Europe/Rome')->startOfDay()->toString() => [
-				'DISPLAY' => Carbon::parse('2025-06-21', 'Europe/Rome')->startOfDay()->translatedFormat('l j F'),
+			Carbon::parse('2026-06-20', 'Europe/Rome')->startOfDay()->toString() => [
+				'DISPLAY' => Carbon::parse('2026-06-20', 'Europe/Rome')->startOfDay()->translatedFormat('l j F'),
 				'breakfast' => 0,
 				'lunch' => 0,
 				'dinner' => 0,
 			],
-			Carbon::parse('2025-06-22', 'Europe/Rome')->startOfDay()->toString() => [
-				'DISPLAY' => Carbon::parse('2025-06-22', 'Europe/Rome')->startOfDay()->translatedFormat('l j F'),
+			Carbon::parse('2026-06-21', 'Europe/Rome')->startOfDay()->toString() => [
+				'DISPLAY' => Carbon::parse('2026-06-21', 'Europe/Rome')->startOfDay()->translatedFormat('l j F'),
 				'breakfast' => 0,
 				'lunch' => 0,
 				'dinner' => 0,
@@ -1493,11 +1496,34 @@ class BookingController extends Controller
 
 					if (!$carbonDate->between($checkin, $checkout))
 					continue;
+					if (self::isExcludedBoundaryMeal($type, $carbonDate))
+					continue;
 					$freeMeals[$date][$type->value] += $people;
 				}
 			}
 		}
 
 		return $freeMeals;
+	}
+
+	private static function getMealPrice(Meal $meal, Carbon|string $date): float
+	{
+		$date = \is_string($date) ? Carbon::parse($date) : $date;
+		// Sunday lunches cost 25€ instead of the standard 20€
+		if ($meal->type === MealType::LUNCH && $date->isSunday())
+			return 25.0;
+		return (float)$meal->price;
+	}
+
+	private static function isExcludedBoundaryMeal(MealType $type, Carbon|string $date): bool
+	{
+		$date = \is_string($date) ? Carbon::parse($date) : $date;
+		// June 19 lunch (before event starts) and June 21 dinner (after event ends)
+		// must be explicitly added by the user.
+		if ($type === MealType::LUNCH && $date->day === 19 && $date->month === 6 && $date->year === 2026)
+			return true;
+		if ($type === MealType::DINNER && $date->day === 21 && $date->month === 6 && $date->year === 2026)
+			return true;
+		return false;
 	}
 }

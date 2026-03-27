@@ -20,7 +20,7 @@ const route = inject("route");
 				{{ $t("Third Sector Organization (RUNTS rep. n. 113019)") }}
 			</p>
 			<p class="text-center mt-3 text-xl font-semibold">
-				{{ $t("GobCon 2025 Garfagnana - Booking Portal") }}
+				{{ $t("GobCon 2026 Garfagnana - Booking Portal") }}
 			</p>
 		</header>
 		<main class="py-8 px-2 grow shrink basis-auto max-w-screen-2xl mx-auto">

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 	{
 		$this->call([
 			HotelSeeder::class,
-			GobCon2025Seeder::class,
+			GobCon2026Seeder::class,
 			// RoomSeeder::class,
 			// RoomOptionSeeder::class,
 			// MealSeeder::class,
