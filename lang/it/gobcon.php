@@ -130,7 +130,7 @@ return [
 		],
 		'reduced_prices' => [
 			'question' => 'Ci sono prezzi ridotti per i bambini?',
-			'answer' => 'Non sono previste particolari riduzioni per i bambini. I bambini devono pagare il prezzo pieno per i pernottamenti se hanno bisogno di un posto letto (quindi, se un bambino dorme nello stesso letto di un adulto o in una culla, non paga il pernottamento). Per i pasti, tutti i bambini devono pagare il prezzo pieno, fermo restando che è sempre possibile portare il pranzo al sacco. In tal caso, il bambino potrà mangiare rimanendo con gli adulti al tavolo.',
+			'answer' => 'I bambini sotto i 3 anni non devono pagare né il pernottamento né i pasti. I bambini più grandi devono pagare il prezzo pieno per i pernottamenti se hanno bisogno di un posto letto (quindi, se un bambino dorme nello stesso letto di un adulto o in una culla, non paga il pernottamento). Per i pasti, tutti i bambini dai 3 anni in su devono pagare il prezzo pieno, fermo restando che è sempre possibile portare il pranzo al sacco. In tal caso, il bambino potrà mangiare rimanendo con gli adulti al tavolo.',
 		],
 		'event_time' => [
 			'question' => 'In quali orari si svolgerà l\'evento?',

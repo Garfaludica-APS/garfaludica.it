@@ -46,7 +46,7 @@
 					<FadeInView class="text-center">
 						<component :is="eventTitle" class="text-4xl xs:text-6xl font-semibold tracking-tight text-balance text-foreground sm:text-8xl uppercase"></component>
 						<p class="mt-8 text-lg font-medium text-pretty text-dimmed-foreground sm:text-xl/8">{{ $t('gobcon.description') }}<br><br>
-							<span class="text-xl sm:text-2xl/8 text-green-600">{{ $t('gobcon.date_location', { date: '20-22 Giugno', location: 'Corfino, Villa Collemandina, Lucca' }) }}</span>
+							<span class="text-xl sm:text-2xl/8 text-green-600">{{ $t('gobcon.date_location', { date: eventDate, location: 'Corfino, Villa Collemandina, Lucca' }) }}</span>
 						</p>
 						<FadeInView delay="medium" v-if="$slots.actions" class="mt-10 flex items-center justify-center gap-x-6">
 							<slot name="actions" />

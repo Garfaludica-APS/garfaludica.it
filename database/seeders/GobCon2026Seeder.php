@@ -48,7 +48,7 @@ class GobCon2026Seeder extends Seeder
 				'reservable' => false,
 			]);
 		}
-		$this->seedLunches($isera);
+		$this->seedLunches($panoramic);
 		$this->seedDinners($panoramic);
 	}
 

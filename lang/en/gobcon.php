@@ -130,7 +130,7 @@ return [
 		],
 		'reduced_prices' => [
 			'question' => 'Are there discounted prices for children?',
-			'answer' => 'There are no special discounts for children. Children must pay the full price for overnight stays if they need a bed (so, if a child sleeps in the same bed as an adult or in a crib, they do not pay for the overnight stay). For meals, all children must pay the full price, but you can always bring a packed lunch. In this case, the child can eat at the table with the adults.',
+			'answer' => 'Children under 3 years old do not need to pay for either bed or meals. Older children must pay the full price for overnight stays if they need a bed (so, if a child sleeps in the same bed as an adult or in a crib, they do not pay for the overnight stay). For meals, all children aged 3 and over must pay the full price, but you can always bring a packed lunch. In this case, the child can eat at the table with the adults.',
 		],
 		'event_time' => [
 			'question' => 'What are the event hours?',

@@ -27,7 +27,7 @@ return new class() extends Migration {
 			$table->timestamp('expires_at');
 		});
 		Schema::table('bookings', static function(Blueprint $table): void {
-			$table->increments('short_id')->from(81)->change();
+			$table->increments('short_id')->from(168)->change();
 		});
 	}
 

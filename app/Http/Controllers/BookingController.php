@@ -524,7 +524,7 @@ class BookingController extends Controller
 				]);
 				$meal->booking_id = $booking->id;
 				if ($type === MealType::LUNCH)
-					$meal->meal_id = Meal::whereRelation('hotel', 'name', 'Isera Refuge')->where('type', MealType::LUNCH)->where('menu', $menu)->first()->id;
+					$meal->meal_id = Meal::whereRelation('hotel', 'name', 'Panoramic Hotel')->where('type', MealType::LUNCH)->where('menu', $menu)->first()->id;
 				elseif ($type === MealType::DINNER)
 					$meal->meal_id = Meal::whereRelation('hotel', 'name', 'Panoramic Hotel')->where('type', MealType::DINNER)->where('menu', $menu)->first()->id;
 				$meal->loadMissing('meal');
@@ -1347,7 +1347,7 @@ class BookingController extends Controller
 
 	private function addMissingMeals(Booking $booking): void
 	{
-		$lunch = Meal::whereRelation('hotel', 'name', 'Isera Refuge')->where('type', MealType::LUNCH)->where('menu', Menu::STANDARD)->first();
+		$lunch = Meal::whereRelation('hotel', 'name', 'Panoramic Hotel')->where('type', MealType::LUNCH)->where('menu', Menu::STANDARD)->first();
 		$dinner = Meal::whereRelation('hotel', 'name', 'Panoramic Hotel')->where('type', MealType::DINNER)->where('menu', Menu::STANDARD)->first();
 
 		$lunches = [];
