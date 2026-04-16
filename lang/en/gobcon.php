@@ -176,6 +176,16 @@ return [
 			'question' => 'Can I take photos during the event? Can I post them on social media? Might Garfaludica APS take photos and videos of me during the event?',
 			'answer' => 'Before taking photos of anyone, it is always good practice to ask for permission, especially when minors are present. Posting on social media requires the consent of all recognizable persons in the multimedia material (as required by law), and it is your responsibility to ensure you have obtained their consent before posting any uncensored material. Garfaludica APS may take photos and videos during the event to document it and to promote future editions of GobCon. These photos and videos might be posted on social media or on the Garfaludica APS website. If you do not want to be photographed or recorded, please inform us upon your arrival at the event.',
 		],
+		'alternative_activities' => [
+			'question' => 'Are there activities other than board gaming?',
+			'answer' => 'Yes! In addition to board gaming, several activities are available throughout the weekend to explore the Garfagnana region:'
+				. '<ul style="list-style-type: disc; list-style-position: inside">'
+				. '<li><strong>Guided tour of the Fortezza delle Verrucole</strong>, a stunning medieval fortress overlooking the valley.</li>'
+				. '<li><strong>Guided tours of the valley\'s historic villages</strong>: Castelnuovo di Garfagnana, Barga, and Castiglione di Garfagnana, featuring history, art, and local traditions.</li>'
+				. '<li><strong>Sunday morning hike</strong> to the summit of Pania di Corfino (1,603 m), a moderately challenging trail with panoramic views of the Tuscan-Emilian Apennines.</li>'
+				. '</ul>'
+				. 'For more details on the activities and how to join, feel free to contact us!',
+		],
 		'isera_drone' => [
 			'question' => 'Can I bring a drone to Rifugio Isera?',
 			'answer' => 'Drones can only be used at low altitude (2-3 meters) while remaining within the fenced area of Rifugio Isera. Drones MUST NOT leave the area or gain altitude to capture footage of the Appennino Tosco-Emiliano National Park or the Orecchiella Nature Reserve. Since Rifugio Isera is located within a Nature Reserve, the use of drones is prohibited. Additionally, drones must be insured with a liability policy. Garfaludica APS is not responsible for any damage caused by drones to people or property. To avoid any issues, please refrain from flying drones over or near other people.',

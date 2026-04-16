@@ -176,6 +176,16 @@ return [
 			'question' => 'Posso scattare foto durante l\'evento? Posso pubblicare le foto sui social? Garfaludica APS potrebbe fare foto e video di me durante l\'evento?',
 			'answer' => 'Prima di scattare foto a qualcuno, è sempre buona norma chiedere il permesso, soprattutto in presenza di minori. La pubblicazione sui social è subordinata al consenso di tutte le persone riconoscibili nel materiale multimediale (come previsto dalla legge), ed è tua responsabilità assicurarti di avere il loro consenso prima di pubblicare materiale non censurato. Garfaludica APS potrebbe scattare foto e video durante l\'evento per documentare l\'evento e promuovere le future edizioni della GobCon. Le foto e i video potrebbero essere pubblicati sui social media o sul sito web di Garfaludica APS. Se non vuoi essere fotografato o ripreso, ti preghiamo di comunicarcelo in loco al tuo arrivo nel luogo dell\'evento.',
 		],
+		'alternative_activities' => [
+			'question' => 'Ci sono attività alternative al gioco da tavolo?',
+			'answer' => 'Sì! Oltre al gioco da tavolo, durante il weekend sono disponibili diverse attività per scoprire il territorio della Garfagnana:'
+				. '<ul style="list-style-type: disc; list-style-position: inside">'
+				. '<li><strong>Visita guidata alla Fortezza delle Verrucole</strong>, un\'affascinante fortezza medievale che domina la valle dall\'alto.</li>'
+				. '<li><strong>Visite guidate ai borghi della valle</strong>: Castelnuovo di Garfagnana, Barga e Castiglione di Garfagnana, tra storia, arte e tradizione.</li>'
+				. '<li><strong>Escursione domenica mattina</strong> alla vetta della Pania di Corfino (1603 m), un percorso di media difficoltà con vista panoramica sull\'Appennino Tosco-Emiliano.</li>'
+				. '</ul>'
+				. 'Per maggiori informazioni sulle attività e su come partecipare, contattaci!',
+		],
 		'isera_drone' => [
 			'question' => 'Posso portare un drone al Rifugio Isera?',
 			'answer' => 'Droni possono essere usati solamente a bassa quota (2-3 metri di altitudine) rimanendo all\'interno dell\'area recintata del Rifugio Isera. I droni NON possono uscire dall\'area o sollevarsi ad alta quota per riprendere il Parco Nazionale dell\'Appennino Tosco-Emiliano o la Riserva Naturale dell\'Orecchiella. Il Rifugio Isera si trova all\'interno di una Riserva Naturale e l\'uso di droni è vietato. I droni devono inoltre essere assicurati con una polizza di responsabilità civile. Garfaludica APS non è responsabile per eventuali danni causati da droni a persone o cose. Per evitare problemi, ti preghiamo di non far volare droni sopra o vicino alle altre persone.',

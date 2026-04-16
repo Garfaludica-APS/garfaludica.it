@@ -44,6 +44,7 @@ class GobCon extends Controller
 				'event_time',
 				'event_location',
 				'reach_event_location',
+				'alternative_activities',
 				'isera_drone',
 				'photo_privacy',
 				'event_profit',
